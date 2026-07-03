@@ -24,44 +24,6 @@ export type Project = {
 export const projects: Project[] = [
   // ─────────────────────────── HERO ───────────────────────────
   {
-    slug: "velox-lob",
-    name: "Velox-LOB",
-    tagline: "A sub-microsecond limit order book in pure C++20.",
-    year: "2026",
-    tier: "hero",
-    tags: ["C++20", "Data-Oriented Design", "lock-free", "AVX-512 SIMD", "custom allocator"],
-    metrics: [
-      { label: "order updates / sec", value: "1,000,000+" },
-      { label: "matching latency", value: "4× lower (SIMD)" },
-      { label: "order processing", value: "sub-µs" },
-    ],
-    repo: null,
-    problem:
-      "Matching engines live and die by tail latency: heap fragmentation and cache misses cause " +
-      "non-deterministic spikes that are unacceptable in a hot trading path.",
-    approach: [
-      "Data-Oriented Design of the book for L1 cache-hit maximization and memory alignment",
-      "Custom fixed-size block pool allocator replacing std::allocator — eliminates latency spikes from heap fragmentation",
-      "Lock-free single-producer/single-consumer (SPSC) queue via std::atomic",
-      "AVX-512 SIMD intrinsics to parallelize price-level updates",
-    ],
-    results: [
-      "1M+ order updates/sec sustained",
-      "4× reduction in matching latency via SIMD",
-      "sub-microsecond order processing",
-    ],
-    // codeSnippet: uncomment once a real ~15-line excerpt is pasted from the repo
-    // (SPSC push or pool allocator). A "// TODO" body must never ship — the block
-    // stays absent until real code exists, same convention as the media arrays.
-    // codeSnippet: {
-    //   lang: "cpp",
-    //   caption: "Lock-free SPSC enqueue on the hot path",
-    //   code: `...`,
-    // },
-    architecture:
-      "Ingress → lock-free SPSC queue → matching core (DOD book, pool allocator) → SIMD price-level update.",
-  },
-  {
     slug: "robotic-service-dog",
     name: "Robotic Service Dog",
     tagline: "An autonomous quadruped that follows and monitors Alzheimer's patients.",
@@ -95,6 +57,38 @@ export const projects: Project[] = [
       "Led the system architecture across the capstone team",
     ],
     architecture: "Perception (OpenCV) → Planning → Control (IK, servo) over a ROS2 graph with custom QoS.",
+  },
+  {
+    slug: "ribbit",
+    name: "Ribbit — Autonomous Cargo Aircraft",
+    tagline: "Distributed autonomy software for a safety-critical cargo aircraft in remote environments.",
+    year: "2024–2025",
+    role: "SWE Intern · Robotics",
+    tier: "hero",
+    tags: ["C++17/20/23", "ROS2", "template metaprogramming", "zero-copy", "RF links", "XPlane11", "RAII"],
+    metrics: [
+      { label: "telemetry latency", value: "sub-100 ms" },
+      { label: "availability", value: "99.9%" },
+    ],
+    repo: null,
+    problem:
+      "Autonomous flight for a cargo aircraft in remote environments is safety-critical and real-time: " +
+      "sensor drivers can't add overhead, telemetry has to stay deterministic over a low-bandwidth RF link, " +
+      "and correctness is non-negotiable.",
+    approach: [
+      "Embedded C++17 drivers for safety-critical sensors/actuators — template metaprogramming for hardware abstraction with zero runtime overhead",
+      "Zero-copy data-passing architecture for deterministic sub-100 ms telemetry cycles",
+      "XPlane11 simulation bridge for HITL/SITL testing — end-to-end validation of flight dynamics and sensor-to-world coordinate mapping",
+      "Multi-threaded RF audio streaming with custom C++ buffer management — eliminated non-deterministic jitter over the radio link",
+      "Contributions to the distributed ROS2 autonomy stack",
+    ],
+    results: [
+      "Sub-100 ms telemetry latency on safety-critical systems",
+      "99.9% availability",
+      "Part of North America's first peer-to-peer heterogeneous autonomous aircraft search-and-rescue mission (with the NRC)",
+    ],
+    architecture:
+      "Sensors/actuators (C++17 drivers) → zero-copy telemetry → ROS2 autonomy stack ↔ RF link; XPlane11 HITL/SITL for validation.",
   },
   {
     slug: "rescue-ranger",
@@ -154,11 +148,74 @@ export const projects: Project[] = [
     architecture: "CRTP pricing kernel → SIMD-vectorized Greek pass → aggregation.",
   },
   {
+    slug: "bird-animation-gan",
+    name: "Bird Animation Model",
+    tagline: "A GAN that synthesizes animated bird-flight sequences from real images.",
+    year: "2023",
+    tier: "hero",
+    tags: ["PyTorch", "YOLOv5", "CNN", "GAN", "OpenCV", "CUDA"],
+    metrics: [
+      { label: "images processed", value: "18,000+" },
+      { label: "training time", value: "3× faster (CUDA)" },
+    ],
+    repo: null,
+    problem:
+      "Synthesizing believable animated bird-flight sequences means first extracting clean subjects from " +
+      "thousands of noisy real photos, then learning the temporal motion of flight — not just a static pose.",
+    approach: [
+      "YOLOv5 preprocessing pipeline to extract bird features from 18,000+ real images",
+      "CNN feature extractor feeding a GAN that synthesizes animated flight sequences",
+      "CUDA parallelization of the training loop",
+    ],
+    results: [
+      "18,000+ images processed through the extraction pipeline",
+      "3× reduction in training time via CUDA",
+      "Synthesized animated flight sequences from static inputs",
+    ],
+    architecture:
+      "Real images → YOLOv5 extraction → CNN features → GAN synthesis → animated flight sequences (CUDA-accelerated training).",
+  },
+
+  // ─────────────────────────── GRID ───────────────────────────
+  // Velox-LOB + Aether-Flow: kept as grid until documentation is strong enough to
+  // headline them as case studies. Re-promote later by flipping tier back to "hero"
+  // (the problem/approach/results/architecture fields are already written).
+  {
+    slug: "velox-lob",
+    name: "Velox-LOB",
+    tagline: "A sub-microsecond limit order book in pure C++20.",
+    year: "2026",
+    tier: "grid",
+    tags: ["C++20", "Data-Oriented Design", "lock-free", "AVX-512 SIMD", "custom allocator"],
+    metrics: [
+      { label: "order updates / sec", value: "1,000,000+" },
+      { label: "matching latency", value: "4× lower (SIMD)" },
+      { label: "order processing", value: "sub-µs" },
+    ],
+    repo: null,
+    problem:
+      "Matching engines live and die by tail latency: heap fragmentation and cache misses cause " +
+      "non-deterministic spikes that are unacceptable in a hot trading path.",
+    approach: [
+      "Data-Oriented Design of the book for L1 cache-hit maximization and memory alignment",
+      "Custom fixed-size block pool allocator replacing std::allocator — eliminates latency spikes from heap fragmentation",
+      "Lock-free single-producer/single-consumer (SPSC) queue via std::atomic",
+      "AVX-512 SIMD intrinsics to parallelize price-level updates",
+    ],
+    results: [
+      "1M+ order updates/sec sustained",
+      "4× reduction in matching latency via SIMD",
+      "sub-microsecond order processing",
+    ],
+    architecture:
+      "Ingress → lock-free SPSC queue → matching core (DOD book, pool allocator) → SIMD price-level update.",
+  },
+  {
     slug: "aether-flow",
     name: "Aether-Flow",
     tagline: "A distributed, low-latency engine that orchestrates agentic inference.",
     year: "2026–present",
-    tier: "hero",
+    tier: "grid",
     tags: ["C++23", "Go", "gRPC", "Docker", "PyTorch", "lock-free"],
     metrics: [{ label: "hardware utilization", value: "+40% (dynamic batching)" }],
     repo: null,
@@ -173,8 +230,6 @@ export const projects: Project[] = [
     architecture:
       "Go gRPC front (lock-free priority queue, dynamic batching) → C++23 orchestrator → decoupled VLM/LLM inference services.",
   },
-
-  // ─────────────────────────── GRID ───────────────────────────
   {
     slug: "utat-uav",
     name: "UTAT — VTOL Flight Software",
@@ -211,19 +266,6 @@ export const projects: Project[] = [
     year: "2023",
     tier: "grid",
     tags: ["C++", "ARM", "raw framebuffer", "collision detection"],
-    repo: null,
-  },
-  {
-    slug: "bird-animation-gan",
-    name: "Bird Animation Model",
-    tagline: "GAN that synthesizes bird-flight sequences from real images.",
-    year: "2023",
-    tier: "grid",
-    tags: ["PyTorch", "YOLOv5", "CNN", "GAN", "CUDA"],
-    metrics: [
-      { label: "images processed", value: "18,000+" },
-      { label: "training time", value: "3× faster (CUDA)" },
-    ],
     repo: null,
   },
   {
