@@ -1,36 +1,119 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# shivansh2703.github.io
 
-## Getting Started
+My portfolio — robotics & low-latency systems projects. Dark, engineered, data-forward.
 
-First, run the development server:
+**Stack:** Next.js (App Router) · TypeScript · Tailwind CSS · Framer Motion · Shiki
+**Host:** GitHub Pages (static export) · auto-deploys on push to `main`
+**Live:** https://shivansh2703.github.io
+
+---
+
+## Quick start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm ci          # install
+npm run dev     # local dev at http://localhost:3000
+npm run build   # static export to ./out
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Requires Node 20+.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Everything is data-driven — you rarely touch components
 
-## Learn More
+All content lives in `content/`. The pages iterate over it, so adding or editing content never means
+touching layout or page code.
 
-To learn more about Next.js, take a look at the following resources:
+```
+content/
+  projects.ts      # every project (hero + grid)
+  experience.ts    # work timeline
+  about.ts         # bio, links, résumé path
+public/
+  media/<slug>/    # per-project images/video
+  shivansh_singh_resume.pdf
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### ➕ Add a grid project
+Append one object to `projects` in `content/projects.ts`:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```ts
+{
+  slug: "my-thing",
+  name: "My Thing",
+  tagline: "One line on what it is.",
+  year: "2026",
+  tier: "grid",
+  tags: ["C++", "whatever"],
+  metrics: [{ label: "throughput", value: "10×" }], // optional
+  repo: null, // or "https://github.com/you/my-thing"
+}
+```
 
-## Deploy on Vercel
+It shows up in the grid automatically. That's the whole change.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### ⭐ Promote a project to a hero case study
+Change `tier: "grid"` → `tier: "hero"` and fill the optional case-study fields:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```ts
+tier: "hero",
+problem: "…",
+approach: ["…", "…"],
+results: ["…"],
+codeSnippet: { lang: "cpp", caption: "…", code: `…` }, // optional
+architecture: "…",                                     // optional
+```
+
+The `/projects/<slug>` page is generated automatically from the data (via `generateStaticParams`).
+Any field you omit simply doesn't render — nothing breaks.
+
+### 🖼️ Add photos or video to a project
+1. Drop the file in `public/media/<slug>/`.
+2. Add one entry to that project's `media` array:
+
+```ts
+media: [
+  { type: "image", src: "/media/my-thing/photo.jpg", alt: "descriptive alt text" },
+  { type: "video", src: "/media/my-thing/demo.mp4",  alt: "what the clip shows" },
+],
+```
+
+Compress first (video → H.264 mp4, **under ~20 MB per clip** — the repo is the CDN; no Git LFS).
+Keep images < ~300 KB. No other change needed.
+
+### 🔗 Wire a GitHub repo when it goes public
+Change `repo: null` → the URL. The card/CTA switches from "Private · coming soon" to a live link.
+
+### 📄 Update the résumé
+Replace `public/shivansh_singh_resume.pdf`. The download button always points there.
+
+### ↕️ Reorder
+Hero order = array order in `projects.ts` (grid too). No layout edits.
+
+---
+
+## Deploy
+
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which runs the static export and publishes
+`./out` to GitHub Pages. Nothing manual.
+
+Local production check before pushing:
+
+```bash
+npm run build && npx serve out
+```
+
+### Custom domain (optional)
+1. Add a `CNAME` file at the repo root containing the domain (e.g. `shivanshsonit.com`).
+2. Point DNS at GitHub Pages (A records to GitHub's IPs, or a CNAME to `shivansh2703.github.io`).
+3. Enable "Enforce HTTPS" in repo Settings → Pages.
+
+---
+
+## Notes
+- Static export: no SSR / API routes / server image optimization (`next.config.ts` sets
+  `output: 'export'`, `images.unoptimized: true`). Not needed for this site.
+- Respects `prefers-reduced-motion` — animations degrade gracefully.
+- `public/.nojekyll` must stay (keeps GitHub Pages from stripping `_next/`).
