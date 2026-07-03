@@ -422,7 +422,7 @@ export const projects: Project[] = [
     role: "ECE568 · Computer Security",
     tier: "grid",
     tags: ["C", "x86", "buffer overflow", "exploit dev", "GDB"],
-    repo: "https://github.com/Shivansh2703/ece568/tree/main/lab1",
+    repo: null, // ECE568 lab solutions kept private (dead link + academic integrity)
   },
   {
     slug: "web-security-exploits",
@@ -432,7 +432,7 @@ export const projects: Project[] = [
     role: "ECE568 · Computer Security",
     tier: "grid",
     tags: ["Python", "XSS", "SSRF", "RCE", "prototype pollution"],
-    repo: "https://github.com/Shivansh2703/ece568/tree/main/lab3",
+    repo: null, // ECE568 lab solutions kept private (dead link + academic integrity)
   },
   {
     slug: "vscode-extension",

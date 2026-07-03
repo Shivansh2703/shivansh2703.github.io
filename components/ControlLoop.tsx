@@ -62,7 +62,7 @@ export function ControlLoop() {
   return (
     <figure
       aria-hidden="true"
-      className="w-full max-w-sm rounded-lg border border-line bg-surface/50 p-4"
+      className="w-full max-w-md rounded-lg border border-line bg-surface/50 p-5"
     >
       <figcaption className="mb-3 flex items-center justify-between font-mono text-[11px] text-muted">
         <span className="flex items-center gap-1.5">

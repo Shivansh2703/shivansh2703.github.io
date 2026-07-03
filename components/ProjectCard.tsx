@@ -9,9 +9,9 @@ function RepoState({ repo }: { repo?: string | null }) {
       </span>
     );
   }
-  return (
-    <span className="font-mono text-[11px] text-muted/80">Private · coming soon</span>
-  );
+  // No public repo → render nothing. A label repeated across many cards reads as
+  // noise; the absence of a link is self-explanatory.
+  return null;
 }
 
 export function ProjectCard({ project }: { project: Project }) {
