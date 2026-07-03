@@ -4,15 +4,16 @@ export const about = {
   // The five disciplines shown as the hero's breadth statement.
   disciplines: ["Software", "Hardware", "Controls", "Electrical", "Mechanical"],
   // Hero one-liner — kept short; the breadth lives in the chips + the loop diagram.
-  blurb: "I build software that works in the real world — and I help people with it.",
+  // The machines are the hero's beat; the people are the bio's closing beat — don't merge them.
+  blurb: "I build software for the real world — machines you can watch do their job.",
   // About-section paragraph — distinct from the hero blurb; the point is versatility.
   bio:
-    "The range is the point. I like owning a problem end to end — laying out the board, writing the " +
-    "firmware, closing the control loop, and building the software on top — picking up whatever the " +
-    "problem needs along the way. That's taken me from bare-metal rovers to autonomous quadrupeds " +
-    "to distributed systems, and I pick the next thing up fast. But what really keeps me hooked is " +
-    "simple: building things that work in the real world — software I can point at and watch " +
-    "actually do something — and using it to help people.",
+    "The range is the point. I like owning a problem end to end — laying out the board, writing " +
+    "the firmware, closing the control loop, building the software on top. That's taken me from " +
+    "bare-metal rovers to autonomous quadrupeds to distributed systems, and the next discipline " +
+    "never takes long to pick up. What keeps me hooked is simpler than any of that: watching " +
+    "something I built do real work — a quadruped that follows a person, a rover that finds one — " +
+    "and knowing exactly who it helps.",
   athletics:
     "Varsity wrestling and rowing at UofT, national-level MMA/BJJ (Canadian nationals bronze), and a " +
     "national-level swimmer in India. The through-line: I seek out environments with a high bar.",
