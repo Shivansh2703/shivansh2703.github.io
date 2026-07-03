@@ -166,9 +166,9 @@ export const projects: Project[] = [
     name: "Black-Scholes Quant Engine",
     tagline: "High-throughput options pricing with SIMD-vectorized Greeks.",
     year: "2024–2025",
-    tier: "hero",
+    tier: "grid",
     tags: ["C++", "AVX-512 SIMD", "CRTP", "Monte Carlo"],
-    metrics: [{ label: "Greek calculations", value: "6× speedup (SIMD)" }],
+    metrics: [{ label: "Greek calculations", value: "~6× (SIMD)" }],
     repo: null,
     problem:
       "Pricing options and their sensitivities (Greeks) at throughput means fighting virtual-call " +
@@ -306,7 +306,7 @@ export const projects: Project[] = [
     year: "2026–present",
     tier: "grid",
     tags: ["C++23", "Go", "gRPC", "Docker", "PyTorch", "lock-free"],
-    metrics: [{ label: "hardware utilization", value: "+40% (dynamic batching)" }],
+    metrics: [{ label: "hardware utilization", value: "~40% higher (dynamic batching)" }],
     repo: null,
     problem:
       "Serving agentic workflows across decoupled vision-language and LLM services wastes accelerator " +
