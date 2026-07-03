@@ -39,15 +39,21 @@ export function ProjectCard({ project }: { project: Project }) {
     </>
   );
 
-  const cls =
-    "group flex h-full flex-col rounded-lg border border-line bg-surface/40 p-5 transition-colors hover:bg-surface";
+  const base = "flex h-full flex-col rounded-lg border border-line bg-surface/40 p-5";
 
+  // Only the linked variant is a `group` and gets hover affordances — a plain
+  // <div> must not signal clickability (title group-hover + surface hover).
   if (project.repo) {
     return (
-      <a href={project.repo} target="_blank" rel="noopener noreferrer" className={cls}>
+      <a
+        href={project.repo}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`group ${base} transition-colors hover:border-accent/40 hover:bg-surface`}
+      >
         {inner}
       </a>
     );
   }
-  return <div className={cls}>{inner}</div>;
+  return <div className={base}>{inner}</div>;
 }

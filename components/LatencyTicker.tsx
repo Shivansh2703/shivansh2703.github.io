@@ -7,11 +7,13 @@ const W = 320;
 const H = 96;
 
 function seedSeries(): number[] {
-  // A calm baseline with occasional spikes — reads like a latency monitor.
+  // Deterministic baseline — must be identical on the server (prerender) and the
+  // client's first render, or hydration mismatches. Randomness lives only in
+  // nextValue(), which runs post-mount inside the rAF loop.
   return Array.from({ length: N }, (_, i) => {
-    const base = 0.35 + 0.12 * Math.sin(i / 3);
-    const spike = i % 11 === 0 ? 0.35 : 0;
-    return Math.min(1, base + spike + Math.random() * 0.08);
+    const base = 0.4 + 0.12 * Math.sin(i / 3) + 0.05 * Math.sin(i / 1.7);
+    const spike = i % 11 === 0 ? 0.3 : 0;
+    return Math.min(1, base + spike);
   });
 }
 
@@ -64,7 +66,10 @@ export function LatencyTicker() {
       <figcaption className="mb-3 flex items-center justify-between font-mono text-[11px] text-muted">
         <span className="flex items-center gap-1.5">
           <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
-          matching latency
+          latency monitor
+          <span className="rounded-sm border border-line px-1 text-[9px] tracking-wider text-muted/70">
+            SIM
+          </span>
         </span>
         <span className="tabular-nums text-fg">
           {readout}
@@ -96,7 +101,7 @@ export function LatencyTicker() {
       </svg>
       <div className="mt-2 flex justify-between font-mono text-[10px] tracking-wide text-muted/70">
         <span>p50</span>
-        <span>1M+ updates/sec</span>
+        <span>synthetic signal</span>
         <span>p99</span>
       </div>
     </figure>
