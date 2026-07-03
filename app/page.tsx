@@ -43,30 +43,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 03 — Contact */}
-      <section id="contact" className="mx-auto w-full max-w-5xl scroll-mt-16 px-6 py-20 sm:px-8">
-        <SectionLabel index="03">contact</SectionLabel>
-        <h2 className="mt-6 max-w-3xl text-balance text-3xl font-medium tracking-tight text-fg sm:text-5xl">
-          Have a hard problem that spans a few disciplines?
-        </h2>
-        <p className="mt-4 max-w-xl text-muted">
-          I&apos;m open to engineering roles and collaborations — robotics, AI, and anything that
-          needs building end to end.
-        </p>
-        <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
-          <BracketLink href={`mailto:${about.links.email}`}>{about.links.email}</BracketLink>
-          <BracketLink href={about.links.linkedin} variant="ghost" external>
-            linkedin
-          </BracketLink>
-          <BracketLink href={about.links.github} variant="ghost" external>
-            github
-          </BracketLink>
-        </div>
-      </section>
-
-      {/* 04 — About (moved to the bottom) */}
+      {/* 03 — About */}
       <section id="about" className="mx-auto w-full max-w-5xl scroll-mt-16 px-6 py-16 sm:px-8">
-        <SectionLabel index="04">about</SectionLabel>
+        <SectionLabel index="03">about</SectionLabel>
         <div className="mt-8 grid gap-10 lg:grid-cols-[1.5fr_1fr]">
           <div>
             <p className="max-w-2xl text-lg leading-relaxed text-fg">{about.bio}</p>
@@ -98,6 +77,27 @@ export default function Home() {
               </ul>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* 04 — Contact (closing CTA, last) */}
+      <section id="contact" className="mx-auto w-full max-w-5xl scroll-mt-16 px-6 py-20 sm:px-8">
+        <SectionLabel index="04">contact</SectionLabel>
+        <h2 className="mt-6 max-w-3xl text-balance text-3xl font-medium tracking-tight text-fg sm:text-5xl">
+          Have a hard problem that spans a few disciplines?
+        </h2>
+        <p className="mt-4 max-w-xl text-muted">
+          I&apos;m open to engineering roles and collaborations — robotics, AI, and anything that
+          needs building end to end.
+        </p>
+        <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
+          <BracketLink href={`mailto:${about.links.email}`}>{about.links.email}</BracketLink>
+          <BracketLink href={about.links.linkedin} variant="ghost" external>
+            linkedin
+          </BracketLink>
+          <BracketLink href={about.links.github} variant="ghost" external>
+            github
+          </BracketLink>
         </div>
       </section>
     </main>
