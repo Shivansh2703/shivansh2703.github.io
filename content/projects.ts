@@ -156,6 +156,7 @@ export const projects: Project[] = [
     architecture:
       "Rover (Arduino + C++ avoidance + OpenCV) → Node.js REST API (EC2, S3) → React + Google Maps live view.",
     links: [
+      { label: "demo", url: "https://www.youtube.com/watch?v=a1IH57h2Neg" },
       { label: "devpost", url: "https://devpost.com/software/rescue-ranger" },
       {
         label: "writeup",
@@ -415,44 +416,6 @@ export const projects: Project[] = [
     tags: ["Python", "pygame", "game design", "Android (APK)"],
     repo: "https://github.com/Shivansh2703/civ300",
     links: [{ label: "demo", url: "https://www.youtube.com/watch?v=K3Rg01s-mis" }],
-  },
-  {
-    slug: "binary-exploitation",
-    name: "Binary Exploitation",
-    tagline: "Buffer-overflow and memory-corruption exploits against vulnerable target binaries.",
-    year: "2024",
-    role: "ECE568 · Computer Security",
-    tier: "grid",
-    tags: ["C", "x86", "buffer overflow", "exploit dev", "GDB"],
-    repo: null, // ECE568 lab solutions kept private (dead link + academic integrity)
-  },
-  {
-    slug: "web-security-exploits",
-    name: "Web Security Exploits",
-    tagline: "XSS, SSRF, RCE, and prototype-pollution attacks against CTF-style web targets.",
-    year: "2024",
-    role: "ECE568 · Computer Security",
-    tier: "grid",
-    tags: ["Python", "XSS", "SSRF", "RCE", "prototype pollution"],
-    repo: null, // ECE568 lab solutions kept private (dead link + academic integrity)
-  },
-  {
-    slug: "vscode-extension",
-    name: "VS Code Extension",
-    tagline: "Streaming AI feedback in-editor — local-first, latency-focused.",
-    year: "2025",
-    tier: "grid",
-    tags: ["TypeScript", "VS Code API", "Anthropic API", "streaming"],
-    repo: null,
-  },
-  {
-    slug: "daisy",
-    name: "Daisy + Odysseus",
-    tagline: "A personal OS — Obsidian knowledge graph + autonomous research agent.",
-    year: "2026",
-    tier: "grid",
-    tags: ["agent", "Claude", "Obsidian", "automation"],
-    repo: null,
   },
 ];
 

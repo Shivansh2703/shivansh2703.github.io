@@ -3,21 +3,21 @@
 import { useEffect, useRef } from "react";
 
 // A closed loop through the disciplines I actually work across — software →
-// hardware → electrical → mechanical and back around. Conceptual (a block
-// diagram), not a performance claim, so it can't be misread as a fake metric.
+// controls → hardware → electrical → mechanical and back around. Conceptual
+// (a block diagram), not a performance claim, so it can't read as a fake metric.
 const LOOP = "M78,46 H282 V124 H78 Z";
-const PERIOD = 5200; // ms per lap
+const PERIOD = 5600; // ms per lap
 
 function Box({ x, y, label }: { x: number; y: number; label: string }) {
   return (
     <>
-      <rect x={x} y={y} width={80} height={30} rx={5} fill="var(--surface-2)" stroke="var(--line)" />
+      <rect x={x} y={y} width={72} height={30} rx={5} fill="var(--surface-2)" stroke="var(--line)" />
       <text
-        x={x + 40}
+        x={x + 36}
         y={y + 19}
         textAnchor="middle"
         className="font-mono"
-        fontSize="9.5"
+        fontSize="9"
         fill="var(--fg)"
       >
         {label}
@@ -61,7 +61,7 @@ export function ControlLoop() {
           <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-accent" />
           closed loop
         </span>
-        <span className="text-muted/70">sw → hw → elec → mech</span>
+        <span className="text-muted/70">sw → ctrl → hw → elec → mech</span>
       </figcaption>
 
       <svg viewBox="0 0 360 170" className="h-auto w-full" role="presentation">
@@ -78,17 +78,19 @@ export function ControlLoop() {
         {/* wire (also the motion path) */}
         <path ref={pathRef} d={LOOP} fill="none" stroke="var(--line)" strokeWidth="1.5" />
 
-        {/* direction arrowheads — clockwise: top →, right ↓, bottom ←, left ↑ */}
-        <path d="M186,43 l6,3 -6,3 z" fill="var(--muted)" />
+        {/* direction arrowheads — clockwise: top →→, right ↓, bottom ←, left ↑ */}
+        <path d="M126,43 l6,3 -6,3 z" fill="var(--muted)" />
+        <path d="M228,43 l6,3 -6,3 z" fill="var(--muted)" />
         <path d="M279,86 l3,6 3,-6 z" fill="var(--muted)" />
-        <path d="M174,121 l-6,3 6,3 z" fill="var(--muted)" />
+        <path d="M183,121 l-6,3 6,3 z" fill="var(--muted)" />
         <path d="M75,84 l3,-6 3,6 z" fill="var(--muted)" />
 
-        {/* discipline blocks sitting on the loop corners */}
-        <Box x={38} y={31} label="software" />
-        <Box x={242} y={31} label="hardware" />
-        <Box x={242} y={109} label="electrical" />
-        <Box x={38} y={109} label="mechanical" />
+        {/* discipline blocks on the loop (software → controls → hardware on top) */}
+        <Box x={42} y={31} label="software" />
+        <Box x={144} y={31} label="controls" />
+        <Box x={246} y={31} label="hardware" />
+        <Box x={246} y={109} label="electrical" />
+        <Box x={42} y={109} label="mechanical" />
 
         {/* traveling signal pulse */}
         <circle ref={dotRef} cx="78" cy="46" r="4" fill="var(--accent)" filter="url(#dot-glow)" />

@@ -7,8 +7,8 @@ import { BracketLink } from "@/components/Button";
 const links = [
   { href: "/#work", label: "work", always: true },
   { href: "/#experience", label: "experience", always: false },
-  { href: "/#contact", label: "contact", always: true },
   { href: "/#about", label: "about", always: false },
+  { href: "/#contact", label: "contact", always: true },
 ];
 
 export function Nav() {
