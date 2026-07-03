@@ -20,12 +20,16 @@ export const experience: Experience[] = [
     kind: "work",
     url: "https://www.flyribbit.com",
     summary:
-      "Distributed autonomy software for a cargo aircraft in remote environments — part of North " +
-      "America's first peer-to-peer heterogeneous autonomous aircraft search-and-rescue mission (with the NRC).",
+      "A year building distributed autonomy software for a cargo aircraft in remote environments — part of " +
+      "North America's first peer-to-peer heterogeneous autonomous aircraft search-and-rescue mission (with the " +
+      "NRC). Worked across the flight stack: embedded drivers, real-time data systems, simulation, comms, and controls.",
     highlights: [
-      "Embedded C++17 drivers for safety-critical sensors/actuators via template metaprogramming (zero runtime overhead)",
-      "Zero-copy data passing for deterministic sub-100 ms telemetry cycles",
-      "X-Plane 11 sim bridge for HITL/SITL testing; multi-threaded RF audio streaming with custom buffer management",
+      "Embedded C++17 drivers for safety-critical sensors and actuators — template metaprogramming for zero runtime overhead",
+      "Real-time data path: zero-copy passing for deterministic sub-100 ms telemetry cycles",
+      "Built the X-Plane 11 simulation bridge for hardware- and software-in-the-loop (HITL/SITL) testing of the full flight stack",
+      "Integrated flight-software modules across state estimation and control into the autonomy pipeline",
+      "Multi-threaded RF audio streaming over the comms link, with custom buffer management",
+      "Defined test strategy and integration tests that surfaced integration issues on the ground, before flight",
     ],
     metrics: [
       { label: "telemetry latency", value: "sub-100 ms" },
@@ -120,13 +124,13 @@ export const experience: Experience[] = [
     ],
   },
   {
-    org: "UTFO — University of Toronto",
+    org: "UTFO — UofT Freelancers Organization",
     role: "Web Developer",
     period: "2022",
     kind: "team",
     summary:
-      "Built the team's React web application (CSCE) — front-end development for the club's web presence.",
-    highlights: ["React front-end for the team's web platform"],
+      "UofT's student freelancing organization — built web applications for organization and client projects in React.",
+    highlights: ["React front-end development for an organization web platform"],
   },
 ];
 
