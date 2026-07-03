@@ -2,10 +2,10 @@ import { about } from "@/content/about";
 import { BracketLink } from "@/components/Button";
 
 const links = [
-  { href: "#work", label: "work" },
-  { href: "#about", label: "about" },
-  { href: "#experience", label: "experience" },
-  { href: "#contact", label: "contact" },
+  { href: "#work", label: "work", always: true },
+  { href: "#about", label: "about", always: false },
+  { href: "#experience", label: "experience", always: false },
+  { href: "#contact", label: "contact", always: true },
 ];
 
 export function Nav() {
@@ -21,9 +21,9 @@ export function Nav() {
         </a>
 
         <div className="flex items-center gap-6">
-          <ul className="hidden items-center gap-6 font-mono text-xs text-muted sm:flex">
+          <ul className="flex items-center gap-5 font-mono text-xs text-muted sm:gap-6">
             {links.map((l) => (
-              <li key={l.href}>
+              <li key={l.href} className={l.always ? "" : "hidden sm:block"}>
                 <a href={l.href} className="transition-colors hover:text-fg">
                   {l.label}
                 </a>

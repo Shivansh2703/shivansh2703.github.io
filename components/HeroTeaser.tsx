@@ -7,7 +7,7 @@ export function HeroTeaser({ project, index }: { project: Project; index: number
   return (
     <Link
       href={`/projects/${project.slug}/`}
-      className="group block rounded-lg border border-line bg-surface/40 p-6 transition-colors hover:border-line hover:bg-surface sm:p-8"
+      className="group block rounded-lg border border-line bg-surface/40 p-6 transition-colors hover:border-accent/40 hover:bg-surface sm:p-8"
     >
       <div className="flex items-baseline justify-between gap-4">
         <div className="flex items-baseline gap-3">
