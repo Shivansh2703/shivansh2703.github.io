@@ -3,17 +3,16 @@ export const about = {
   role: "Robotics software engineer · hardware to autonomy",
   // The five disciplines shown as the hero's breadth statement.
   disciplines: ["Software", "Hardware", "Controls", "Electrical", "Mechanical"],
-  // Hero one-liner — concrete role up top; the breadth lives here + in the chips.
-  blurb:
-    "I move fluently across software, firmware, control systems, electronics, and mechanical " +
-    "design. Hand me an unfamiliar stack or a problem outside my lane and I'll go learn it and " +
-    "ship. Most drawn to robotics and AI, where every discipline meets.",
+  // Hero one-liner — kept short; the breadth lives in the chips + the loop diagram.
+  blurb: "I build software that works in the real world — and I like helping people with it.",
   // About-section paragraph — distinct from the hero blurb; the point is versatility.
   bio:
     "The range is the point. I like owning a problem end to end — laying out the board, writing the " +
     "firmware, closing the control loop, and building the software on top — and I pick up whatever " +
     "the problem needs. That's taken me from bare-metal rovers to autonomous quadrupeds to " +
-    "distributed systems, and I learn the next thing fast.",
+    "distributed systems, and I learn the next thing fast. What keeps me hooked is building things " +
+    "that work in the real world — software I can point at and watch actually do something — and " +
+    "using it to help people.",
   athletics:
     "Varsity wrestling and rowing at UofT, national-level MMA/BJJ (Canadian nationals bronze), and a " +
     "national-level swimmer in India. The through-line: I seek out environments with a high bar.",

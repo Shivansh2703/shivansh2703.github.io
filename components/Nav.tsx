@@ -5,10 +5,10 @@ import { BracketLink } from "@/components/Button";
 // Root-relative so the anchors resolve from any route (e.g. /projects/<slug>/),
 // not just the home page.
 const links = [
-  { href: "/#about", label: "about", always: false },
   { href: "/#work", label: "work", always: true },
   { href: "/#experience", label: "experience", always: false },
   { href: "/#contact", label: "contact", always: true },
+  { href: "/#about", label: "about", always: false },
 ];
 
 export function Nav() {

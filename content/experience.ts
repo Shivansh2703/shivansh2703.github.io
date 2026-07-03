@@ -31,7 +31,6 @@ export const experience: Experience[] = [
       "Multi-threaded RF audio streaming over the comms link, with custom buffer management",
       "Defined test strategy and integration tests that surfaced integration issues on the ground, before flight",
     ],
-    metrics: [{ label: "telemetry latency", value: "sub-100 ms" }],
   },
   {
     org: "Roboprenr",
