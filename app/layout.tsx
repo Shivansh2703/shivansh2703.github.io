@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { about } from "@/content/about";
+import { Nav } from "@/components/Nav";
+import { Footer } from "@/components/Footer";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -50,7 +52,9 @@ export default function RootLayout({
     >
       <body className="min-h-full antialiased">
         <div className="grid-backdrop" aria-hidden="true" />
+        <Nav />
         {children}
+        <Footer />
       </body>
     </html>
   );
