@@ -100,12 +100,19 @@ export const projects: Project[] = [
       { label: "result", value: "1st / 150+ teams" },
       { label: "build time", value: "24 hr hackathon" },
     ],
-    repo: null,
-    // media: uncomment in Phase 5 once the files exist in public/media/rescue-ranger/:
-    // media: [
-    //   { type: "image", src: "/media/rescue-ranger/rover.jpg", alt: "3D-printed autonomous rover" },
-    //   { type: "image", src: "/media/rescue-ranger/team.jpg", alt: "Team receiving 1st place at UofTHacks X" },
-    // ],
+    repo: "https://github.com/brettyang003/Rescue-Ranger",
+    media: [
+      {
+        type: "image",
+        src: "/media/rescue-ranger/rover-front.jpg",
+        alt: "The 3D-printed autonomous rover — Arduino, ultrasonic distance sensor, and motor drivers wired onto the chassis",
+      },
+      {
+        type: "image",
+        src: "/media/rescue-ranger/rover-side.jpg",
+        alt: "Side view of the Rescue Ranger rover showing the chassis, drive wheels, battery, and onboard electronics",
+      },
+    ],
     problem:
       "Disaster response needs cheap, deployable rovers that can locate survivors and stream their " +
       "positions back to responders — end-to-end, hardware to web, in one night.",
@@ -156,7 +163,7 @@ export const projects: Project[] = [
       { label: "images processed", value: "18,000+" },
       { label: "training time", value: "3× faster (CUDA)" },
     ],
-    repo: null,
+    repo: "https://github.com/Shivansh2703/bird_animation_model",
     problem:
       "Synthesizing believable animated bird-flight sequences means first extracting clean subjects from " +
       "thousands of noisy real photos, then learning the temporal motion of flight — not just a static pose.",
@@ -264,7 +271,7 @@ export const projects: Project[] = [
     year: "2023",
     tier: "grid",
     tags: ["C++", "ARM", "raw framebuffer", "collision detection"],
-    repo: null,
+    repo: "https://github.com/Shivansh2703/Plants-vs-Zombies",
   },
   {
     slug: "tourguide-pro",
