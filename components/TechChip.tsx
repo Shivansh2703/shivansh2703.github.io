@@ -21,7 +21,7 @@ export function TechChip({
   );
 }
 
-export function TechChips({ tags }: { tags: string[] }) {
+export function TechChips({ tags }: { tags: readonly string[] }) {
   return (
     <ul className="flex flex-wrap gap-1.5">
       {tags.map((t) => (

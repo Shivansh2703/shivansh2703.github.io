@@ -9,6 +9,8 @@ export const about = {
     "Varsity wrestling and rowing at UofT, national-level MMA/BJJ (Canadian nationals bronze), and a " +
     "national-level swimmer in India. The through-line: I seek out environments with a high bar.",
   hackathons: ["UofTHacks X — 1st / 150+", "UTEK — 2nd", "HackTheNorth 2023", "NSBEHacks"],
+  // Signature stack chips shown under the hero.
+  stack: ["C++20", "lock-free", "ROS2", "AVX-512 SIMD", "gRPC", "CUDA"],
   links: {
     email: "shivansh.sonit@gmail.com", // contact = mailto: link (no form service)
     github: "https://github.com/Shivansh2703",

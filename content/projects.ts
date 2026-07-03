@@ -50,11 +50,14 @@ export const projects: Project[] = [
       "4× reduction in matching latency via SIMD",
       "sub-microsecond order processing",
     ],
-    codeSnippet: {
-      lang: "cpp",
-      caption: "Lock-free SPSC enqueue on the hot path",
-      code: "// TODO: paste a real ~15-line snippet from the repo (SPSC push or pool allocator)",
-    },
+    // codeSnippet: uncomment once a real ~15-line excerpt is pasted from the repo
+    // (SPSC push or pool allocator). A "// TODO" body must never ship — the block
+    // stays absent until real code exists, same convention as the media arrays.
+    // codeSnippet: {
+    //   lang: "cpp",
+    //   caption: "Lock-free SPSC enqueue on the hot path",
+    //   code: `...`,
+    // },
     architecture:
       "Ingress → lock-free SPSC queue → matching core (DOD book, pool allocator) → SIMD price-level update.",
   },
@@ -141,11 +144,13 @@ export const projects: Project[] = [
       "CRTP to eliminate virtual-function overhead in the simulation kernel",
     ],
     results: ["6× speedup on Greek calculations via SIMD"],
-    codeSnippet: {
-      lang: "cpp",
-      caption: "CRTP kernel — zero-cost static dispatch",
-      code: "// TODO: paste a real CRTP kernel / SIMD Greek snippet from the repo",
-    },
+    // codeSnippet: uncomment once a real CRTP kernel / SIMD Greek excerpt is pasted
+    // from the repo. A "// TODO" body must never ship — stays absent until real code exists.
+    // codeSnippet: {
+    //   lang: "cpp",
+    //   caption: "CRTP kernel — zero-cost static dispatch",
+    //   code: `...`,
+    // },
     architecture: "CRTP pricing kernel → SIMD-vectorized Greek pass → aggregation.",
   },
   {
