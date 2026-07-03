@@ -408,7 +408,7 @@ export const projects: Project[] = [
   {
     slug: "civ300-impact-game",
     name: "Impact — Serious Game",
-    tagline: "A 2D game on the social, economic, and environmental impacts of engineering — pygame, packaged for Android.",
+    tagline: "A team-built 2D game on the social, economic, and environmental impacts of engineering — pygame, packaged for Android.",
     year: "2023",
     role: "CIV300",
     tier: "grid",

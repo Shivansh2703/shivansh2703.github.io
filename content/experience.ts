@@ -52,7 +52,7 @@ export const experience: Experience[] = [
   {
     org: "UTAT — University of Toronto Aerospace Team",
     role: "Software Lead, UAV Multicopter",
-    period: "Sep 2025 – present",
+    period: "Sep 2025 – Apr 2026",
     kind: "team",
     summary:
       "Flight software for a hybrid VTOL UAV (multi-copter + fixed-wing). Two workstreams: a Modern C++ " +
