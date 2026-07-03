@@ -33,7 +33,7 @@ export const projects: Project[] = [
     tier: "hero",
     tags: ["ROS2", "C++", "Python", "OpenCV", "Inverse Kinematics", "visual servoing", "Docker"],
     metrics: [
-      { label: "leg actuation", value: "3-DOF IK" },
+      { label: "platform", value: "8-DOF quadruped" },
       { label: "control loop", value: "visual servoing" },
     ],
     repo: "https://github.com/RobotServiceDog/snoopdogg",
@@ -51,7 +51,7 @@ export const projects: Project[] = [
       {
         type: "video",
         src: "/media/robotic-service-dog/leg-actuation.mp4",
-        alt: "The 3D-printed 3-DOF leg actuated by its servos — the physical locomotion hardware",
+        alt: "An early 3D-printed 3-DOF prototype leg actuated by its servos — the final design pivoted to 2-DOF legs",
       },
     ],
     links: [
@@ -70,7 +70,7 @@ export const projects: Project[] = [
     approach: [
       "Distributed ROS2 stack integrating perception, planning, and control",
       "Closed-loop visual servoing: OpenCV state estimates → velocity commands → adaptive human tracking",
-      "IK solver + 3-DOF leg actuation for smooth locomotion from task-space trajectories",
+      "IK solver + leg actuation for smooth locomotion from task-space trajectories — 3-DOF prototype legs, pivoted to a 2-DOF-per-leg (8-DOF) final design",
       "Custom ROS2 QoS profiles for deterministic multi-node communication",
       "C++ camera + actuator drivers integrated with the full stack; Dockerized team dev environment",
     ],
@@ -78,7 +78,7 @@ export const projects: Project[] = [
       "End-to-end person-following on a physical quadruped",
       "Led the system architecture across the capstone team",
     ],
-    architecture: "Perception (OpenCV) → Planning → Control (IK, servo) over a ROS2 graph with custom QoS.",
+    architecture: "Perception (OpenCV) → Planning → Control (IK, servo); on a ROS2 graph with custom QoS.",
   },
   {
     slug: "xplane11-sim-bridge",
@@ -124,7 +124,7 @@ export const projects: Project[] = [
     year: "2023",
     role: "UofTHacks X · 1st Place",
     tier: "hero",
-    tags: ["C++", "OpenCV", "React", "Google Maps API", "Arduino", "3D printing", "REST"],
+    tags: ["C++", "OpenCV", "React", "Node.js", "AWS (EC2, S3)", "Google Maps API", "Arduino", "3D printing"],
     metrics: [
       { label: "result", value: "1st / 150+ teams" },
       { label: "build time", value: "24 hr hackathon" },
@@ -149,10 +149,12 @@ export const projects: Project[] = [
       "3D-printed chassis integrating sensors, motors, and an Arduino microcontroller",
       "Obstacle-avoidance algorithm in C++",
       "OpenCV survivor-identification pipeline",
-      "Real-time web visualization with React + Google Maps API over REST APIs",
+      "Node.js REST backend on AWS EC2 streaming live rover telemetry; mission data and images stored in S3",
+      "Real-time React + Google Maps dashboard visualizing rover position and findings",
     ],
     results: ["1st place out of 150+ teams", "Full hardware→software system delivered in 24 hours"],
-    architecture: "Rover (Arduino + C++ avoidance + OpenCV) → REST → React + Google Maps live view.",
+    architecture:
+      "Rover (Arduino + C++ avoidance + OpenCV) → Node.js REST API (EC2, S3) → React + Google Maps live view.",
     links: [
       { label: "devpost", url: "https://devpost.com/software/rescue-ranger" },
       {
@@ -226,7 +228,7 @@ export const projects: Project[] = [
       "Synthesized animated flight sequences from static inputs",
     ],
     architecture:
-      "Real images → YOLOv5 extraction → CNN features → GAN synthesis → animated flight sequences (CUDA-accelerated training).",
+      "Real images → YOLOv5 extraction → CNN features → GAN synthesis → animated flight sequences; CUDA-accelerated training.",
   },
   {
     slug: "pvz-arm",

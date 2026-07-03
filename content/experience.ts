@@ -107,7 +107,6 @@ export const experience: Experience[] = [
       "Mapped target poses to joint configurations for controlled, collision-aware arm motion",
     ],
   },
-  // NOTE: role/dates below are best-effort from the repos (2022–23) — edit as needed.
   {
     org: "UTHT — University of Toronto Hyperloop Team",
     role: "Electronics & Firmware",
