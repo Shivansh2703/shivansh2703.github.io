@@ -1,7 +1,7 @@
 import { about } from "@/content/about";
 import { TechChips } from "@/components/TechChip";
 import { BracketLink } from "@/components/Button";
-import { LatencyTicker } from "@/components/LatencyTicker";
+import { ControlLoop } from "@/components/ControlLoop";
 
 export function Hero() {
   return (
@@ -15,7 +15,7 @@ export function Hero() {
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted">{about.blurb}</p>
 
           <div className="mt-8">
-            <TechChips tags={about.stack} />
+            <TechChips tags={about.disciplines} />
           </div>
 
           <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3">
@@ -33,7 +33,7 @@ export function Hero() {
         </div>
 
         <div className="flex justify-center lg:justify-end">
-          <LatencyTicker />
+          <ControlLoop />
         </div>
       </div>
     </section>
