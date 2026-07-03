@@ -97,10 +97,11 @@ export function CaseStudyLayout({ project }: { project: Project }) {
                 m.type === "video" ? (
                   <figure key={m.src}>
                     <video
-                      className="w-full rounded-lg border border-line"
+                      className="mx-auto max-h-[70vh] w-full rounded-lg border border-line bg-black object-contain"
                       controls
                       muted
                       playsInline
+                      preload="metadata"
                     >
                       <source src={m.src} type="video/mp4" />
                     </video>
@@ -138,6 +139,11 @@ export function CaseStudyLayout({ project }: { project: Project }) {
                 repository · private, coming soon
               </span>
             )}
+            {project.links?.map((l) => (
+              <BracketLink key={l.url} href={l.url} external>
+                {l.label}
+              </BracketLink>
+            ))}
             <BracketLink href="/#work" variant="ghost">
               back to work
             </BracketLink>

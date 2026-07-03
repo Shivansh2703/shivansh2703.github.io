@@ -106,6 +106,28 @@ export const experience: Experience[] = [
       "Mapped target poses to joint configurations for controlled, collision-aware arm motion",
     ],
   },
+  // NOTE: role/dates below are best-effort from the repos (2022–23) — edit as needed.
+  {
+    org: "UTHT — University of Toronto Hyperloop Team",
+    role: "Electronics & Firmware",
+    period: "2022 – 2023",
+    kind: "team",
+    summary:
+      "Worked on the test-track electronics for UofT's Hyperloop pod — sensing and control firmware on Arduino.",
+    highlights: [
+      "Arduino firmware for the test-track sensing/control electronics",
+      "Bring-up and testing of the electronics on the track hardware",
+    ],
+  },
+  {
+    org: "UTFO — University of Toronto",
+    role: "Web Developer",
+    period: "2022",
+    kind: "team",
+    summary:
+      "Built the team's React web application (CSCE) — front-end development for the club's web presence.",
+    highlights: ["React front-end for the team's web platform"],
+  },
 ];
 
 // Derived groups so the section renders without re-filtering.
