@@ -1,13 +1,13 @@
 export const about = {
   name: "Shivansh Singh",
-  role: "All-round engineer · robotics & AI",
+  role: "Robotics software engineer · hardware to autonomy",
   // The five disciplines shown as the hero's breadth statement.
   disciplines: ["Software", "Hardware", "Controls", "Electrical", "Mechanical"],
-  // Hero one-liner — leads with breadth and adaptability, not a niche.
+  // Hero one-liner — concrete role up top; the breadth lives here + in the chips.
   blurb:
-    "An all-round engineer — I move fluently across software, firmware, control systems, " +
-    "electronics, and mechanical design. Hand me an unfamiliar stack or a problem outside my lane " +
-    "and I'll go learn it and ship. Most drawn to robotics and AI, where every discipline meets.",
+    "I move fluently across software, firmware, control systems, electronics, and mechanical " +
+    "design. Hand me an unfamiliar stack or a problem outside my lane and I'll go learn it and " +
+    "ship. Most drawn to robotics and AI, where every discipline meets.",
   // About-section paragraph — distinct from the hero blurb; the point is versatility.
   bio:
     "The range is the point. I like owning a problem end to end — laying out the board, writing the " +

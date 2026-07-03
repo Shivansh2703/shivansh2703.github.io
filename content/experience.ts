@@ -31,10 +31,7 @@ export const experience: Experience[] = [
       "Multi-threaded RF audio streaming over the comms link, with custom buffer management",
       "Defined test strategy and integration tests that surfaced integration issues on the ground, before flight",
     ],
-    metrics: [
-      { label: "telemetry latency", value: "sub-100 ms" },
-      { label: "availability", value: "99.9%" },
-    ],
+    metrics: [{ label: "telemetry latency", value: "sub-100 ms" }],
   },
   {
     org: "Roboprenr",
@@ -80,9 +77,9 @@ export const experience: Experience[] = [
       "CUDA-accelerated inference on vehicle-grade GPUs; Dockerized CV pipelines on live vehicle hardware",
     ],
     metrics: [
-      { label: "throughput", value: "+140%" },
-      { label: "inference", value: ">5× via memory-efficient ops" },
-      { label: "CPU overhead", value: "−27% at peak load" },
+      { label: "throughput", value: "2×+" },
+      { label: "inference", value: "~5× (memory-efficient ops)" },
+      { label: "CPU at peak", value: "~25% lower" },
     ],
   },
   {
