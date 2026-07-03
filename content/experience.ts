@@ -82,7 +82,7 @@ export const experience: Experience[] = [
   {
     org: "UTRA — University of Toronto Robotics Association",
     role: "Project Manager, Autonomous SUMO Robot",
-    period: "", // TODO: add dates
+    period: "Sep 2022 – Apr 2023",
     kind: "team",
     summary:
       "Led UTRA's autonomous SUMO robot project — a combat robot that detects an opponent and drives it " +
@@ -95,7 +95,7 @@ export const experience: Experience[] = [
   {
     org: "RSX — Robotics for Space Exploration",
     role: "Robotic Arm Team — Inverse Kinematics",
-    period: "", // TODO: add dates
+    period: "Sep 2021 – Apr 2022",
     kind: "team",
     summary:
       "Member of RSX's robotic-arm team, working on the inverse kinematics for a space-robotics manipulator.",
