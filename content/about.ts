@@ -8,12 +8,13 @@ export const about = {
   blurb: "I build software for the real world — machines you can watch do their job.",
   // About-section paragraph — distinct from the hero blurb; the point is versatility.
   bio:
-    "The range is the point. I like owning a problem end to end — laying out the board, writing " +
-    "the firmware, closing the control loop, building the software on top. That's taken me from " +
-    "bare-metal rovers to autonomous quadrupeds to distributed systems, and the next discipline " +
-    "never takes long to pick up. What keeps me hooked is simpler than any of that: watching " +
-    "something I built do real work — a quadruped that follows a person, a rover that finds one — " +
-    "and knowing exactly who it helps.",
+    "Most engineers pick a layer of the stack and stay there. The problems I like refuse to: the " +
+    "board shapes the firmware, the firmware constrains the control loop, and the software on top " +
+    "inherits every decision made beneath it. Following that thread has taken me from bare-metal " +
+    "rovers to an autonomous quadruped to distributed systems — each new discipline learned " +
+    "because the problem demanded it. The reward is always the same: watching something I built " +
+    "hold up in the real world — a quadruped keeping pace with a person, a rover finding one — " +
+    "and knowing exactly who it's working for.",
   athletics:
     "Varsity wrestling and rowing at UofT, national-level MMA/BJJ (Canadian nationals bronze), and a " +
     "national-level swimmer in India. The through-line: I seek out environments with a high bar.",
