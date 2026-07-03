@@ -3,6 +3,7 @@ export type Experience = {
   role: string;
   period: string; // "" if unknown → the UI omits the date
   kind: "work" | "team";
+  url?: string; // org/company site → org name becomes a link
   summary: string;
   highlights: string[];
   metrics?: { label: string; value: string }[];
@@ -17,6 +18,7 @@ export const experience: Experience[] = [
     role: "SWE Intern, Robotics",
     period: "Sep 2024 – Aug 2025",
     kind: "work",
+    url: "https://www.flyribbit.com",
     summary:
       "Distributed autonomy software for a cargo aircraft in remote environments — part of North " +
       "America's first peer-to-peer heterogeneous autonomous aircraft search-and-rescue mission (with the NRC).",

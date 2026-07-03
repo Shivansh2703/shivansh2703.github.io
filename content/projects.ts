@@ -33,9 +33,9 @@ export const projects: Project[] = [
     tags: ["ROS2", "C++", "Python", "OpenCV", "Inverse Kinematics", "visual servoing", "Docker"],
     metrics: [
       { label: "leg actuation", value: "3-DOF IK" },
-      { label: "control loop", value: "closed-loop visual servoing" },
+      { label: "control loop", value: "visual servoing" },
     ],
-    repo: null,
+    repo: "https://github.com/RobotServiceDog/snoopdogg",
     // media: uncomment in Phase 5 once the files exist in public/media/robotic-service-dog/
     // (shipping paths to missing files renders broken elements):
     // media: [

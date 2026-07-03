@@ -5,10 +5,10 @@ import { BracketLink } from "@/components/Button";
 // Root-relative so the anchors resolve from any route (e.g. /projects/<slug>/),
 // not just the home page.
 const links = [
+  { href: "/#about", label: "about", always: true },
   { href: "/#work", label: "work", always: true },
-  { href: "/#about", label: "about", always: false },
   { href: "/#experience", label: "experience", always: false },
-  { href: "/#contact", label: "contact", always: true },
+  { href: "/#contact", label: "contact", always: false },
 ];
 
 export function Nav() {
@@ -23,8 +23,8 @@ export function Nav() {
           <span className="text-accent">_</span>
         </Link>
 
-        <div className="flex items-center gap-6">
-          <ul className="flex items-center gap-5 font-mono text-xs text-muted sm:gap-6">
+        <div className="flex items-center gap-4 sm:gap-6">
+          <ul className="flex items-center gap-4 font-mono text-xs text-muted sm:gap-6">
             {links.map((l) => (
               <li key={l.href} className={l.always ? "" : "hidden sm:block"}>
                 <a href={l.href} className="transition-colors hover:text-fg">
