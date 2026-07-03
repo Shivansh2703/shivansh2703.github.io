@@ -13,6 +13,7 @@ export type Project = {
   metrics?: Metric[];
   repo?: string | null;
   media?: Media[];
+  links?: { label: string; url: string }[]; // extra links (demo video, writeup, devpost)
   // hero-only case-study fields (safe to omit on grid):
   problem?: string;
   approach?: string[];
@@ -36,12 +37,33 @@ export const projects: Project[] = [
       { label: "control loop", value: "visual servoing" },
     ],
     repo: "https://github.com/RobotServiceDog/snoopdogg",
-    // media: uncomment in Phase 5 once the files exist in public/media/robotic-service-dog/
-    // (shipping paths to missing files renders broken elements):
-    // media: [
-    //   { type: "video", src: "/media/robotic-service-dog/follow-demo.mp4", alt: "Quadruped autonomously following a person" },
-    //   { type: "image", src: "/media/robotic-service-dog/robot.jpg", alt: "The robotic service dog platform" },
-    // ],
+    media: [
+      {
+        type: "video",
+        src: "/media/robotic-service-dog/apriltag-tracking.mp4",
+        alt: "Closed-loop visual servoing — live AprilTag detection (left) driving a real-time pose/orientation estimate (right)",
+      },
+      {
+        type: "video",
+        src: "/media/robotic-service-dog/follow-controller-sim.mp4",
+        alt: "Follow-controller running in simulation — the quadruped ('snoopy') tracking a target across RViz and Gazebo",
+      },
+      {
+        type: "video",
+        src: "/media/robotic-service-dog/leg-actuation.mp4",
+        alt: "The 3D-printed 3-DOF leg actuated by its servos — the physical locomotion hardware",
+      },
+    ],
+    links: [
+      {
+        label: "watch demos",
+        url: "https://www.youtube.com/playlist?list=PLyFDVB6lbR3M5fSc5rYbUxD02t7VRbDxX",
+      },
+      {
+        label: "writeup",
+        url: "https://www.linkedin.com/posts/shivansh-singh-b51a74218_engineering-for-impact-autonomous-quadruped-share-7448119171772649472-HHAh",
+      },
+    ],
     problem:
       "Assistive robotics for dementia care needs reliable person-following and health monitoring on a " +
       "legged platform — many interacting subsystems that must stay in sync in real time.",
@@ -124,6 +146,13 @@ export const projects: Project[] = [
     ],
     results: ["1st place out of 150+ teams", "Full hardware→software system delivered in 24 hours"],
     architecture: "Rover (Arduino + C++ avoidance + OpenCV) → REST → React + Google Maps live view.",
+    links: [
+      { label: "devpost", url: "https://devpost.com/software/rescue-ranger" },
+      {
+        label: "writeup",
+        url: "https://www.linkedin.com/posts/shivansh-singh-b51a74218_i-had-the-opportunity-to-participate-inuofthacks-share-7025534430769266688-_CZR",
+      },
+    ],
   },
   {
     slug: "black-scholes-engine",
@@ -304,6 +333,7 @@ export const projects: Project[] = [
     tier: "grid",
     tags: ["Python", "PyTorch", "torchaudio", "speech recognition", "Next.js"],
     repo: "https://github.com/Shivansh2703/accent_ace",
+    links: [{ label: "devpost", url: "https://devpost.com/software/pronunciationgo" }],
   },
   {
     slug: "pacbot",
@@ -314,6 +344,17 @@ export const projects: Project[] = [
     tier: "grid",
     tags: ["Python", "search / pathfinding", "game AI"],
     repo: "https://github.com/Shivansh2703/pacbot1",
+  },
+  {
+    slug: "project-jerome",
+    name: "Project Jerome",
+    tagline: "Wearable obstacle + gas-hazard detection for the visually impaired — “go somewhere safe.”",
+    year: "2022",
+    role: "MakeUofT",
+    tier: "grid",
+    tags: ["Arduino", "ultrasonic", "gas sensor", "Bluetooth (HC-05)", "MIT App Inventor"],
+    repo: null,
+    links: [{ label: "devpost", url: "https://devpost.com/software/project-jerome" }],
   },
   {
     slug: "vscode-extension",
