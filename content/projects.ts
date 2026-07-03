@@ -59,36 +59,34 @@ export const projects: Project[] = [
     architecture: "Perception (OpenCV) → Planning → Control (IK, servo) over a ROS2 graph with custom QoS.",
   },
   {
-    slug: "ribbit",
-    name: "Ribbit — Autonomous Cargo Aircraft",
-    tagline: "Distributed autonomy software for a safety-critical cargo aircraft in remote environments.",
+    slug: "xplane11-sim-bridge",
+    name: "X-Plane 11 Simulation Bridge",
+    tagline: "A HITL/SITL bridge that validates autonomous flight software before it ever flies.",
     year: "2024–2025",
-    role: "SWE Intern · Robotics",
+    role: "Ribbit · SWE Intern, Robotics",
     tier: "hero",
-    tags: ["C++17/20/23", "ROS2", "template metaprogramming", "zero-copy", "RF links", "XPlane11", "RAII"],
+    tags: ["C++", "X-Plane 11", "HITL/SITL", "ROS2", "sensor simulation", "coordinate transforms"],
     metrics: [
-      { label: "telemetry latency", value: "sub-100 ms" },
-      { label: "availability", value: "99.9%" },
+      { label: "testing", value: "HITL + SITL" },
+      { label: "validation", value: "end-to-end" },
     ],
     repo: null,
     problem:
-      "Autonomous flight for a cargo aircraft in remote environments is safety-critical and real-time: " +
-      "sensor drivers can't add overhead, telemetry has to stay deterministic over a low-bandwidth RF link, " +
-      "and correctness is non-negotiable.",
+      "Testing autonomous flight software on a real aircraft is slow, expensive, and risky. To iterate " +
+      "safely, the flight stack needs a simulator that feeds it realistic flight dynamics and sensor data — " +
+      "so integration bugs surface on the ground, not in the air.",
     approach: [
-      "Embedded C++17 drivers for safety-critical sensors/actuators — template metaprogramming for hardware abstraction with zero runtime overhead",
-      "Zero-copy data-passing architecture for deterministic sub-100 ms telemetry cycles",
-      "XPlane11 simulation bridge for HITL/SITL testing — end-to-end validation of flight dynamics and sensor-to-world coordinate mapping",
-      "Multi-threaded RF audio streaming with custom C++ buffer management — eliminated non-deterministic jitter over the radio link",
-      "Contributions to the distributed ROS2 autonomy stack",
+      "Bridge between X-Plane 11's flight-dynamics engine and the autonomy stack, streaming simulated state into the same interfaces the real aircraft uses",
+      "Sensor-to-world coordinate mapping so simulated sensor feeds line up with real-world reference frames",
+      "HITL (hardware-in-the-loop) and SITL (software-in-the-loop) modes for end-to-end validation of the flight pipeline",
+      "Modern C++ with custom serialization for the sim↔stack data path",
     ],
     results: [
-      "Sub-100 ms telemetry latency on safety-critical systems",
-      "99.9% availability",
-      "Part of North America's first peer-to-peer heterogeneous autonomous aircraft search-and-rescue mission (with the NRC)",
+      "End-to-end validation of flight dynamics and sensor-to-world coordinate mapping",
+      "Let the team catch integration issues on the ground, before real flights",
     ],
     architecture:
-      "Sensors/actuators (C++17 drivers) → zero-copy telemetry → ROS2 autonomy stack ↔ RF link; XPlane11 HITL/SITL for validation.",
+      "X-Plane 11 flight dynamics ↔ sim bridge (serialization, coordinate transforms) ↔ ROS2 autonomy stack; switchable HITL / SITL.",
   },
   {
     slug: "rescue-ranger",
