@@ -26,9 +26,3 @@ Add to the Pages workflow (or a scheduled job):
 - External link sweep (all `repo`/`links` URLs in content + media files
   return 200) — links rot silently; today's all-green was a one-time manual
   check. A weekly scheduled run is enough.
-
-## Still open (not parked — next active fix)
-
-- Re-encode `public/media/robotic-service-dog/apriltag-tracking.mp4`: it is
-  MPEG-4 Part 2 and does not decode in Chrome/Firefox.
-  `ffmpeg -i in.mp4 -c:v libx264 -pix_fmt yuv420p -movflags +faststart out.mp4`
