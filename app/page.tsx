@@ -1,6 +1,4 @@
-import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
-import { Footer } from "@/components/Footer";
 import { SectionLabel } from "@/components/SectionLabel";
 import { HeroTeaser } from "@/components/HeroTeaser";
 import { ProjectCard } from "@/components/ProjectCard";
@@ -12,10 +10,8 @@ import { about } from "@/content/about";
 
 export default function Home() {
   return (
-    <>
-      <Nav />
-      <main>
-        <Hero />
+    <main>
+      <Hero />
 
         {/* 01 — Selected Work */}
         <section id="work" className="mx-auto w-full max-w-5xl scroll-mt-16 px-6 py-16 sm:px-8">
@@ -88,9 +84,7 @@ export default function Home() {
               github
             </BracketLink>
           </div>
-        </section>
-      </main>
-      <Footer />
-    </>
+      </section>
+    </main>
   );
 }
