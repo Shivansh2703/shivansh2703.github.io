@@ -51,7 +51,7 @@ export const projects: Project[] = [
       {
         type: "video",
         src: "/media/robotic-service-dog/leg-actuation.mp4",
-        alt: "An early 3D-printed 3-DOF prototype leg actuated by its servos — the final design pivoted to 2-DOF legs",
+        alt: "A 3D-printed 3-DOF leg actuated by its servos — the final build freezes the hip joint to run 2 active DOF per leg",
       },
     ],
     links: [
@@ -70,7 +70,7 @@ export const projects: Project[] = [
     approach: [
       "Distributed ROS2 stack integrating perception, planning, and control",
       "Closed-loop visual servoing: OpenCV state estimates → velocity commands → adaptive human tracking",
-      "IK solver + leg actuation for smooth locomotion from task-space trajectories — 3-DOF prototype legs, pivoted to a 2-DOF-per-leg (8-DOF) final design",
+      "Developed a 3-DOF inverse-kinematics solver for the legs; froze the hip joint in the final build to run 2 active DOF per leg (8-DOF quadruped)",
       "Custom ROS2 QoS profiles for deterministic multi-node communication",
       "C++ camera + actuator drivers integrated with the full stack; Dockerized team dev environment",
     ],
