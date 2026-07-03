@@ -15,9 +15,7 @@ export default function Home() {
       <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">{about.blurb}</p>
 
       <div className="mt-8">
-        <TechChips
-          tags={["C++20", "lock-free", "ROS2", "AVX-512 SIMD", "gRPC", "CUDA"]}
-        />
+        <TechChips tags={about.stack} />
       </div>
 
       <div className="mt-10 flex flex-wrap gap-6">

@@ -31,7 +31,7 @@ export function BracketLink({
       <span
         aria-hidden
         className={cn(
-          "text-line transition-colors",
+          "text-muted transition-colors",
           variant === "primary" ? "group-hover:text-accent" : "group-hover:text-fg",
         )}
       >
@@ -41,7 +41,7 @@ export function BracketLink({
       <span
         aria-hidden
         className={cn(
-          "text-line transition-colors",
+          "text-muted transition-colors",
           variant === "primary" ? "group-hover:text-accent" : "group-hover:text-fg",
         )}
       >
