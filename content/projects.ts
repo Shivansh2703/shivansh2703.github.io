@@ -372,7 +372,7 @@ export const projects: Project[] = [
     role: "Roboprenr",
     tier: "grid",
     tags: ["ROS2", "OpenCV", "face recognition", "PCA9685 servos", "IMU", "voice / AI assistant", "Raspberry Pi"],
-    repo: "https://github.com/Shivansh2703/r-1",
+    repo: null,
   },
   {
     slug: "accent-ace",
@@ -393,7 +393,7 @@ export const projects: Project[] = [
     role: "UTRA",
     tier: "grid",
     tags: ["Python", "search / pathfinding", "game AI"],
-    repo: "https://github.com/Shivansh2703/pacbot1",
+    repo: null,
   },
   {
     slug: "project-jerome",
@@ -414,7 +414,7 @@ export const projects: Project[] = [
     role: "CIV300",
     tier: "grid",
     tags: ["Python", "pygame", "game design", "Android (APK)"],
-    repo: "https://github.com/Shivansh2703/civ300",
+    repo: null,
     links: [{ label: "demo", url: "https://www.youtube.com/watch?v=K3Rg01s-mis" }],
   },
 ];
