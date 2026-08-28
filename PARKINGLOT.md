@@ -15,7 +15,18 @@ Nobody has reviewed them.
   accent_ace, pacbot1, civ300). The site raises expectations these repos must
   meet; a bare repo undercuts the click-through.
 
-## 2. CI guardrails for deploys (2026-07-03)
+## 2. Visitor analytics (2026-07-15)
+
+No hit counting exists today — GitHub Pages has no built-in analytics and no
+script is wired into the site, so traffic is unrecorded until one is added.
+
+- Recommended: GoatCounter (free, cookie-free, no consent banner) — create an
+  account at goatcounter.com, add their script tag to the root layout, deploy.
+- Alternative: Cloudflare Web Analytics (also free/cookie-free, no DNS move).
+- Counting starts only from deploy time; historical traffic is unrecoverable,
+  so earlier is better.
+
+## 3. CI guardrails for deploys (2026-07-03)
 
 Deploys go straight to main with no automated checks beyond lint/tsc/build.
 Add to the Pages workflow (or a scheduled job):
