@@ -24,6 +24,7 @@ export type Project = {
 
 export const projects: Project[] = [
   // ─────────────────────────── HERO ───────────────────────────
+  // The five that get full case-study pages. Order = display order.
   {
     slug: "robotic-service-dog",
     name: "Robotic Service Dog",
@@ -236,6 +237,23 @@ export const projects: Project[] = [
   // ─────────────────────────── GRID ───────────────────────────
   // Grouped, not strictly chronological: systems and tooling, then hardware
   // and robotics, then the smaller and hobby work. Array order is display order.
+
+  // ─────────────────────────── GRID ───────────────────────────
+  // Strongest first, not chronological. Rank by depth of the engineering,
+  // then by whether the claim is verifiable (public repo, shipped artifact,
+  // or a formal role), then by recency. Roughly: substantial work, then
+  // hardware and low-level, then smaller tools, games and older coursework.
+  // Array order is display order — reordering needs no code change.
+  {
+    slug: "utat-uav",
+    name: "UTAT — VTOL Flight Software",
+    tagline: "Event-driven IPC + PX4 flight control for a hybrid VTOL UAV.",
+    year: "2025–2026",
+    role: "Software Lead",
+    tier: "grid",
+    tags: ["Modern C++", "PX4", "Simulink", "PID", "event-driven IPC"],
+    repo: null,
+  },
   {
     slug: "lockwire",
     name: "Lockwire",
@@ -244,17 +262,6 @@ export const projects: Project[] = [
     year: "2026–present",
     tier: "grid",
     tags: ["Python", "pydantic", "NumPy", "PX4 ULog", "CI gating"],
-    repo: null,
-  },
-  {
-    slug: "nav2-upstream",
-    name: "Nav2 — Upstream Contribution",
-    tagline:
-      "Address/Thread Sanitizers in the ROS2 Nav2 navigation stack's CI, upstream.",
-    year: "2026–present",
-    role: "In progress · open source",
-    tier: "grid",
-    tags: ["ROS2", "Nav2", "C++", "ASan / TSan", "CI"],
     repo: null,
   },
   {
@@ -269,6 +276,28 @@ export const projects: Project[] = [
     repo: null,
   },
   {
+    slug: "nav2-upstream",
+    name: "Nav2 — Upstream Contribution",
+    tagline:
+      "Address/Thread Sanitizers in the ROS2 Nav2 navigation stack's CI, upstream.",
+    year: "2026–present",
+    role: "In progress · open source",
+    tier: "grid",
+    tags: ["ROS2", "Nav2", "C++", "ASan / TSan", "CI"],
+    repo: null,
+  },
+  {
+    slug: "3rdspace",
+    name: "3rdspace",
+    tagline:
+      "A presence-based campus social app — geofenced spaces, anonymous-until-friended identity.",
+    year: "2026–present",
+    tier: "grid",
+    tags: ["SwiftUI", "Core Location", "Supabase", "Postgres RLS"],
+    metrics: [{ label: "Swift sources", value: "195" }],
+    repo: null,
+  },
+  {
     slug: "orphan",
     name: "Orphan",
     tagline:
@@ -278,39 +307,6 @@ export const projects: Project[] = [
     tags: ["Python", "macOS", "filesystem forensics", "Typer"],
     metrics: [{ label: "reclaimed", value: "121 GB" }],
     repo: "https://github.com/Shivansh2703/orphan",
-  },
-  {
-    slug: "homeserver",
-    name: "Home Server",
-    tagline:
-      "An always-on Raspberry Pi — Dockerized services kept in version control.",
-    year: "2026–present",
-    tier: "grid",
-    tags: ["Raspberry Pi", "Docker", "Linux", "systemd", "provisioning"],
-    repo: null,
-  },
-  {
-    slug: "tourguide-pro",
-    name: "TourGuide Pro",
-    tagline: "High-performance C++ mapping engine over OpenStreetMap data.",
-    year: "2023",
-    tier: "grid",
-    tags: ["C++", "multithreading", "Dijkstra", "A*", "OpenStreetMap"],
-    metrics: [
-      { label: "query latency", value: "200 ms" },
-      { label: "startup time", value: "10× faster (parallel parse)" },
-    ],
-    repo: null,
-  },
-  {
-    slug: "utat-uav",
-    name: "UTAT — VTOL Flight Software",
-    tagline: "Event-driven IPC + PX4 flight control for a hybrid VTOL UAV.",
-    year: "2025–2026",
-    role: "Software Lead",
-    tier: "grid",
-    tags: ["Modern C++", "PX4", "Simulink", "PID", "event-driven IPC"],
-    repo: null,
   },
   {
     slug: "kuka-kr6",
@@ -329,6 +325,16 @@ export const projects: Project[] = [
     tier: "grid",
     tags: ["C (bare-metal)", "STM32", "UART", "BLE", "FPGA", "Assembly"],
     metrics: [{ label: "stream latency", value: "<500 ms" }],
+    repo: null,
+  },
+  {
+    slug: "pseudo-humanoid",
+    name: "Pseudo-Humanoid Robot",
+    tagline: "A voice-interactive humanoid — vision, face recognition, and an AI assistant on a ROS2 stack.",
+    year: "2023",
+    role: "Roboprenr",
+    tier: "grid",
+    tags: ["ROS2", "OpenCV", "face recognition", "PCA9685 servos", "IMU", "voice / AI assistant", "Raspberry Pi"],
     repo: null,
   },
   {
@@ -373,13 +379,27 @@ export const projects: Project[] = [
   // Projects without a public repo carry `repo: null` — the card
   // renders with no link rather than a "private" label.
   {
-    slug: "pseudo-humanoid",
-    name: "Pseudo-Humanoid Robot",
-    tagline: "A voice-interactive humanoid — vision, face recognition, and an AI assistant on a ROS2 stack.",
-    year: "2023",
-    role: "Roboprenr",
+    slug: "paperdeck",
+    name: "Paperdeck",
+    tagline:
+      "A Raspberry Pi driving a jailbroken Kindle as its display and an Xbox controller as its input, over a single USB cable.",
+    year: "2026",
     tier: "grid",
-    tags: ["ROS2", "OpenCV", "face recognition", "PCA9685 servos", "IMU", "voice / AI assistant", "Raspberry Pi"],
+    tags: ["Python", "Raspberry Pi", "e-ink", "evdev", "USB networking"],
+    metrics: [{ label: "e-ink panel", value: "1072×1448" }],
+    repo: "https://github.com/Shivansh2703/paperdeck",
+  },
+  {
+    slug: "tourguide-pro",
+    name: "TourGuide Pro",
+    tagline: "High-performance C++ mapping engine over OpenStreetMap data.",
+    year: "2023",
+    tier: "grid",
+    tags: ["C++", "multithreading", "Dijkstra", "A*", "OpenStreetMap"],
+    metrics: [
+      { label: "query latency", value: "200 ms" },
+      { label: "startup time", value: "10× faster (parallel parse)" },
+    ],
     repo: null,
   },
   {
@@ -423,46 +443,13 @@ export const projects: Project[] = [
       "Real images → YOLOv5 extraction → CNN features → GAN synthesis → animated flight sequences; CUDA-accelerated training.",
   },
   {
-    slug: "paperdeck",
-    name: "Paperdeck",
+    slug: "homeserver",
+    name: "Home Server",
     tagline:
-      "A Raspberry Pi driving a jailbroken Kindle as its display and an Xbox controller as its input, over a single USB cable.",
-    year: "2026",
-    tier: "grid",
-    tags: ["Python", "Raspberry Pi", "e-ink", "evdev", "USB networking"],
-    metrics: [{ label: "e-ink panel", value: "1072×1448" }],
-    repo: "https://github.com/Shivansh2703/paperdeck",
-  },
-  {
-    slug: "project-jerome",
-    name: "Project Jerome",
-    tagline: "Wearable obstacle + gas-hazard detection for the visually impaired — “go somewhere safe.”",
-    year: "2022",
-    role: "MakeUofT",
-    tier: "grid",
-    tags: ["Arduino", "ultrasonic", "gas sensor", "Bluetooth (HC-05)", "MIT App Inventor"],
-    repo: null,
-    links: [{ label: "devpost", url: "https://devpost.com/software/project-jerome" }],
-  },
-  {
-    slug: "pacbot",
-    name: "PacBot",
-    tagline: "Autonomous Pac-Man AI for UTRA's PacBot challenge — grid search + strategy.",
-    year: "2023",
-    role: "UTRA",
-    tier: "grid",
-    tags: ["Python", "search / pathfinding", "game AI"],
-    repo: null,
-  },
-  {
-    slug: "3rdspace",
-    name: "3rdspace",
-    tagline:
-      "A presence-based campus social app — geofenced spaces, anonymous-until-friended identity.",
+      "An always-on Raspberry Pi — Dockerized services kept in version control.",
     year: "2026–present",
     tier: "grid",
-    tags: ["SwiftUI", "Core Location", "Supabase", "Postgres RLS"],
-    metrics: [{ label: "Swift sources", value: "195" }],
+    tags: ["Raspberry Pi", "Docker", "Linux", "systemd", "provisioning"],
     repo: null,
   },
   {
@@ -525,6 +512,27 @@ export const projects: Project[] = [
     tags: ["Python", "PyTorch", "torchaudio", "speech recognition", "Next.js"],
     repo: "https://github.com/Shivansh2703/accent_ace",
     links: [{ label: "devpost", url: "https://devpost.com/software/pronunciationgo" }],
+  },
+  {
+    slug: "pacbot",
+    name: "PacBot",
+    tagline: "Autonomous Pac-Man AI for UTRA's PacBot challenge — grid search + strategy.",
+    year: "2023",
+    role: "UTRA",
+    tier: "grid",
+    tags: ["Python", "search / pathfinding", "game AI"],
+    repo: null,
+  },
+  {
+    slug: "project-jerome",
+    name: "Project Jerome",
+    tagline: "Wearable obstacle + gas-hazard detection for the visually impaired — “go somewhere safe.”",
+    year: "2022",
+    role: "MakeUofT",
+    tier: "grid",
+    tags: ["Arduino", "ultrasonic", "gas sensor", "Bluetooth (HC-05)", "MIT App Inventor"],
+    repo: null,
+    links: [{ label: "devpost", url: "https://devpost.com/software/project-jerome" }],
   },
   {
     slug: "civ300-impact-game",
