@@ -2,18 +2,24 @@
 
 Deferred work — not blocking, do not pick up mid-phase. Date added in parens.
 
-## 1. Linked-repo sweep (2026-07-03)
+## 1. Linked-repo sweep (2026-07-03, list refreshed 2026-08-31)
 
-The site now points at public repos, which makes them part of the portfolio.
+The site points at public repos, which makes them part of the portfolio.
 Nobody has reviewed them.
 
 - Secrets scan: hardcoded API keys / tokens / .env files across all linked
   repos — especially `brettyang003/Rescue-Ranger` (Google Maps + AWS keys from
   a 2023 hackathon). If a live key is found: revoke/rotate first, then purge.
 - Quality pass: README with a screenshot + build/run steps for each repo the
-  site links (snoopdogg, bird_animation_model, Plants-vs-Zombies, r-1,
-  accent_ace, pacbot1, civ300). The site raises expectations these repos must
-  meet; a bare repo undercuts the click-through.
+  site links. The current set is `snoopdogg`, `Rescue-Ranger`, `pvz-de1soc`,
+  `accent_ace`, `tracon`, `agent-radar`, `orphan`, `paperdeck`, `chute` and
+  `tally`. The site raises expectations these repos must meet; a bare repo
+  undercuts the click-through. The 2026 repos mostly carry real READMEs
+  already; `accent_ace` is the thin one.
+- Link rot is real and silent: two links broke between July and August (one
+  repo went private, one was renamed and survived only on GitHub's redirect).
+  Re-run `curl -sIL -o /dev/null -w '%{http_code}'` over every `repo`/`links`
+  URL whenever the content file changes — see item 3.
 
 ## 2. Visitor analytics (2026-07-15)
 
