@@ -4,7 +4,7 @@ import { TechChips } from "@/components/TechChip";
 function RepoState({ repo }: { repo?: string | null }) {
   if (repo) {
     return (
-      <span className="font-mono text-xs text-link transition-colors group-hover:text-accent">
+      <span className="shrink-0 whitespace-nowrap font-mono text-xs text-link transition-colors group-hover:text-accent">
         repo ↗
       </span>
     );
@@ -23,6 +23,9 @@ export function ProjectCard({ project }: { project: Project }) {
         </h3>
         <span className="shrink-0 font-mono text-[11px] text-muted">{project.year}</span>
       </div>
+      {project.role && (
+        <p className="mt-1 font-mono text-xs text-muted">{project.role}</p>
+      )}
       <p className="mt-2 text-sm leading-relaxed text-muted">{project.tagline}</p>
 
       {project.metrics?.[0] && (
@@ -32,7 +35,7 @@ export function ProjectCard({ project }: { project: Project }) {
         </p>
       )}
 
-      <div className="mt-4 flex items-end justify-between gap-3">
+      <div className="mt-auto flex items-end justify-between gap-3 pt-4">
         <TechChips tags={project.tags.slice(0, 4)} />
         <RepoState repo={project.repo} />
       </div>
@@ -49,6 +52,7 @@ export function ProjectCard({ project }: { project: Project }) {
         href={project.repo}
         target="_blank"
         rel="noopener noreferrer"
+        aria-label={`${project.name} - GitHub repository`}
         className={`group ${base} transition-colors hover:border-accent/40 hover:bg-surface`}
       >
         {inner}

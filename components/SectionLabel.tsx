@@ -14,15 +14,15 @@ export function SectionLabel({
   className?: string;
 }) {
   return (
-    <div
+    <h2
       className={cn(
-        "flex items-center gap-2 font-mono text-xs tracking-[0.2em] text-muted uppercase",
+        "m-0 flex items-center gap-2 font-mono text-xs font-normal tracking-[0.2em] text-muted uppercase",
         className,
       )}
     >
       <span className="text-accent">{index}</span>
       <span className="text-line">/</span>
       <span>{children}</span>
-    </div>
+    </h2>
   );
 }
