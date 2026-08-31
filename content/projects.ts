@@ -118,6 +118,74 @@ export const projects: Project[] = [
     ],
   },
   {
+    slug: "tracon",
+    name: "Tracon",
+    tagline: "A dependency- and session-aware scheduler for agent workloads — measured before it was built.",
+    year: "2026–present",
+    role: "Systems · scheduling",
+    tier: "hero",
+    tags: ["C++", "Go", "gRPC", "pybind11", "cgo", "discrete-event simulation"],
+    metrics: [
+      { label: "per decision (in-process)", value: "1–52 µs" },
+      { label: "real tool calls measured", value: "85,104" },
+      { label: "trace-replay error (median)", value: "0.0%" },
+    ],
+    repo: "https://github.com/Shivansh2703/tracon",
+    problem:
+      "Serving schedulers treat requests as independent one-shot inferences. Agent workloads are not: " +
+      "they are dependency graphs with sessions, and tool execution rather than model time dominates " +
+      "end-to-end latency — so one slow tool call head-of-line-blocks everything queued behind it, and " +
+      "a session's warm context has locality that schedulers currently ignore.",
+    approach: [
+      "Measured the workload before designing for it: an exporter turns real agent transcripts into a content-free trace — shapes, sizes, ids and timings survive; prompts, arguments, paths and outputs do not",
+      "Characterisation against that corpus: 79% of busy time is tool execution, 3.7% of calls hold 75% of the tool time, and 74% of prompts arrive while the system is already busy",
+      "One C++ decision kernel compiled twice — a pybind11 module the simulator calls in-process, and a Go gRPC service via cgo — with identical decisions verified across both transports",
+      "Every policy evaluated in a trace-driven discrete-event simulation against a FIFO plus dynamic-batching baseline, with methodology and hardware stated next to each number",
+    ],
+    results: [
+      "Dependency- and context-aware scheduling cuts p95 turn latency against FIFO at 16× replicated load, with no oracle knowledge",
+      "Simulator reproduces observed turn latency at 0.0% median and 0.1% p90 replay error",
+      "Scheduling decisions cost 1–52 µs in-process and 215–417 µs over localhost gRPC, by queue depth",
+      "The accompanying failure study replicates on an independent 94,059-call public corpus, and reports which of its own findings did not survive",
+    ],
+    architecture:
+      "Agent transcripts → content-free trace export → discrete-event simulator ↔ C++ decision kernel (pybind11 in-process, Go gRPC via cgo).",
+  },
+  {
+    slug: "agent-radar",
+    name: "Agent Radar",
+    tagline:
+      "A VS Code / Cursor extension showing every AI coding agent running on your machine — live, and entirely local.",
+    year: "2026–present",
+    role: "Shipped · editor extension",
+    tier: "hero",
+    tags: ["TypeScript", "VS Code Extension API", "process introspection", "webview", "no network"],
+    metrics: [
+      { label: "marketplaces", value: "VS Code + Open VSX" },
+      { label: "agent CLIs surfaced", value: "6" },
+      { label: "network calls", value: "zero" },
+    ],
+    repo: "https://github.com/Shivansh2703/agent-radar",
+    problem:
+      "Running several coding agents at once, you lose track of which are working, which are blocked " +
+      "waiting on you, and which have quietly finished. Every tool reports that differently, and most " +
+      "do not report it outside their own window at all.",
+    approach: [
+      "Reads Claude Code sessions and their subagents from the on-disk session transcripts, plus a session registry for liveness",
+      "Detects the other CLIs — Codex, Copilot CLI, Cursor Agent, Grok, Gemini — by scanning local processes, enriched from each tool's own logs where it keeps them",
+      "Per-CLI source adapters behind a single collector interface, with a completion-detection precedence chain that resolves signals which disagree",
+      "A status-bar summary plus a live dashboard webview; clicking a session already running in the window reveals that exact terminal tab",
+      "Local by design — no server, no network, and no vendor API in the discovery path",
+    ],
+    results: [
+      "Published to the Visual Studio Marketplace, and to Open VSX so Cursor can resolve it",
+      "Nothing leaves the machine: discovery reads local processes and transcripts only",
+      "Collector ported out of an earlier Python server into TypeScript inside the extension, removing the separate daemon it used to need",
+    ],
+    architecture:
+      "Session transcripts + local process scan → per-CLI source adapters → one collector → status bar and dashboard webview.",
+  },
+  {
     slug: "rescue-ranger",
     name: "Rescue Ranger",
     tagline: "Autonomous search-and-rescue rover — 1st of 150+ teams at UofTHacks X.",
@@ -164,97 +232,10 @@ export const projects: Project[] = [
       },
     ],
   },
-  {
-    slug: "bird-animation-gan",
-    name: "Bird Animation Model",
-    tagline: "A GAN that synthesizes animated bird-flight sequences from real images.",
-    year: "2023",
-    tier: "hero",
-    tags: ["PyTorch", "YOLOv5", "CNN", "GAN", "OpenCV", "CUDA"],
-    metrics: [
-      { label: "images processed", value: "18,000+" },
-      { label: "training time", value: "3× faster (CUDA)" },
-    ],
-    repo: null, // repo made private — a public card must not link a 404
-    media: [
-      {
-        type: "video",
-        src: "/media/bird-animation-gan/synthesized-flight.mp4",
-        alt: "GAN-synthesized bird in flapping flight — a motion sequence generated by the model, not a real recording",
-      },
-      {
-        type: "video",
-        src: "/media/bird-animation-gan/flight-sequence.mp4",
-        alt: "Another bird synthesized by the model — the generator resolving a detailed subject from the learned distribution",
-      },
-    ],
-    problem:
-      "Synthesizing believable animated bird-flight sequences means first extracting clean subjects from " +
-      "thousands of noisy real photos, then learning the temporal motion of flight — not just a static pose.",
-    approach: [
-      "YOLOv5 preprocessing pipeline to extract bird features from 18,000+ real images",
-      "CNN feature extractor feeding a GAN that synthesizes animated flight sequences",
-      "CUDA parallelization of the training loop",
-    ],
-    results: [
-      "18,000+ images processed through the extraction pipeline",
-      "3× reduction in training time via CUDA",
-      "Synthesized animated flight sequences from static inputs",
-    ],
-    architecture:
-      "Real images → YOLOv5 extraction → CNN features → GAN synthesis → animated flight sequences; CUDA-accelerated training.",
-  },
-  {
-    slug: "pvz-arm",
-    name: "Plants vs. Zombies — Bare-Metal ARM Engine",
-    tagline: "A full PvZ game rendered straight to a raw framebuffer — no graphics library, on an ARM SoC.",
-    year: "2023",
-    role: "Low-level systems",
-    tier: "hero",
-    tags: ["C++", "ARM", "raw framebuffer", "software rasterizer", "collision detection"],
-    metrics: [
-      { label: "graphics stack", value: "zero libraries" },
-      { label: "target", value: "bare-metal ARM" },
-    ],
-    repo: "https://github.com/Shivansh2703/pvz-de1soc",
-    media: [
-      {
-        type: "video",
-        src: "/media/pvz-arm/gameplay.mp4",
-        alt: "Plants vs. Zombies running on the ARM SoC — the game rendered directly to the display's framebuffer",
-      },
-    ],
-    problem:
-      "Build a real-time game with nothing underneath you — no OS graphics stack, no SDL, no OpenGL. On a " +
-      "bare-metal ARM target you own everything from the pixel buffer up: drawing, sprites, collision, and frame timing.",
-    approach: [
-      "Rendered the entire game to a raw memory-mapped framebuffer — every sprite blitted pixel-by-pixel with a hand-written software rasterizer",
-      "Tile grid, plants, projectiles, and zombies drawn with transparency/masking, no graphics library involved",
-      "Collision detection between plants, projectiles, and zombies driving the game state",
-      "Input handling and a game loop with manual frame pacing on the ARM SoC",
-    ],
-    results: [
-      "A playable Plants vs. Zombies clone running on bare-metal ARM, rendered straight to the framebuffer",
-      "Full plant / projectile / zombie systems with win-and-lose game states",
-    ],
-    architecture:
-      "Input → game loop (state machine, collision) → software rasterizer → memory-mapped framebuffer → display.",
-  },
 
   // ─────────────────────────── GRID ───────────────────────────
-  // Systems/tooling, then hardware/robotics, then smaller/hobby.
-  // Projects without a public repo carry `repo: null` — the card
-  // renders with no link rather than a "private" label.
-  {
-    slug: "tracon",
-    name: "Tracon",
-    tagline: "A dependency- and session-aware scheduler for agent workloads — measured before it was built.",
-    year: "2026–present",
-    tier: "grid",
-    tags: ["C++", "Go", "gRPC", "pybind11", "discrete-event simulation"],
-    metrics: [{ label: "per decision", value: "1–52 µs" }],
-    repo: "https://github.com/Shivansh2703/tracon",
-  },
+  // Grouped, not strictly chronological: systems and tooling, then hardware
+  // and robotics, then the smaller and hobby work. Array order is display order.
   {
     slug: "lockwire",
     name: "Lockwire",
@@ -264,16 +245,6 @@ export const projects: Project[] = [
     tier: "grid",
     tags: ["Python", "pydantic", "NumPy", "PX4 ULog", "CI gating"],
     repo: null,
-  },
-  {
-    slug: "agent-radar",
-    name: "Agent Radar",
-    tagline:
-      "A VS Code / Cursor extension showing every AI coding agent running on your machine — live, and entirely local.",
-    year: "2026–present",
-    tier: "grid",
-    tags: ["TypeScript", "VS Code API", "introspection", "no network"],
-    repo: "https://github.com/Shivansh2703/agent-radar",
   },
   {
     slug: "nav2-upstream",
@@ -361,6 +332,47 @@ export const projects: Project[] = [
     repo: null,
   },
   {
+    slug: "pvz-arm",
+    name: "Plants vs. Zombies — Bare-Metal ARM Engine",
+    tagline: "A full PvZ game rendered straight to a raw framebuffer — no graphics library, on an ARM SoC.",
+    year: "2023",
+    role: "Low-level systems",
+    tier: "grid",
+    tags: ["C++", "ARM", "raw framebuffer", "software rasterizer", "collision detection"],
+    metrics: [
+      { label: "graphics stack", value: "zero libraries" },
+      { label: "target", value: "bare-metal ARM" },
+    ],
+    repo: "https://github.com/Shivansh2703/pvz-de1soc",
+    media: [
+      {
+        type: "video",
+        src: "/media/pvz-arm/gameplay.mp4",
+        alt: "Plants vs. Zombies running on the ARM SoC — the game rendered directly to the display's framebuffer",
+      },
+    ],
+    problem:
+      "Build a real-time game with nothing underneath you — no OS graphics stack, no SDL, no OpenGL. On a " +
+      "bare-metal ARM target you own everything from the pixel buffer up: drawing, sprites, collision, and frame timing.",
+    approach: [
+      "Rendered the entire game to a raw memory-mapped framebuffer — every sprite blitted pixel-by-pixel with a hand-written software rasterizer",
+      "Tile grid, plants, projectiles, and zombies drawn with transparency/masking, no graphics library involved",
+      "Collision detection between plants, projectiles, and zombies driving the game state",
+      "Input handling and a game loop with manual frame pacing on the ARM SoC",
+    ],
+    results: [
+      "A playable Plants vs. Zombies clone running on bare-metal ARM, rendered straight to the framebuffer",
+      "Full plant / projectile / zombie systems with win-and-lose game states",
+    ],
+    architecture:
+      "Input → game loop (state machine, collision) → software rasterizer → memory-mapped framebuffer → display.",
+  },
+
+  // ─────────────────────────── GRID ───────────────────────────
+  // Systems/tooling, then hardware/robotics, then smaller/hobby.
+  // Projects without a public repo carry `repo: null` — the card
+  // renders with no link rather than a "private" label.
+  {
     slug: "pseudo-humanoid",
     name: "Pseudo-Humanoid Robot",
     tagline: "A voice-interactive humanoid — vision, face recognition, and an AI assistant on a ROS2 stack.",
@@ -369,6 +381,46 @@ export const projects: Project[] = [
     tier: "grid",
     tags: ["ROS2", "OpenCV", "face recognition", "PCA9685 servos", "IMU", "voice / AI assistant", "Raspberry Pi"],
     repo: null,
+  },
+  {
+    slug: "bird-animation-gan",
+    name: "Bird Animation Model",
+    tagline: "A GAN that synthesizes animated bird-flight sequences from real images.",
+    year: "2023",
+    tier: "grid",
+    tags: ["PyTorch", "YOLOv5", "CNN", "GAN", "OpenCV", "CUDA"],
+    metrics: [
+      { label: "images processed", value: "18,000+" },
+      { label: "training time", value: "3× faster (CUDA)" },
+    ],
+    repo: null, // repo made private — a public card must not link a 404
+    media: [
+      {
+        type: "video",
+        src: "/media/bird-animation-gan/synthesized-flight.mp4",
+        alt: "GAN-synthesized bird in flapping flight — a motion sequence generated by the model, not a real recording",
+      },
+      {
+        type: "video",
+        src: "/media/bird-animation-gan/flight-sequence.mp4",
+        alt: "Another bird synthesized by the model — the generator resolving a detailed subject from the learned distribution",
+      },
+    ],
+    problem:
+      "Synthesizing believable animated bird-flight sequences means first extracting clean subjects from " +
+      "thousands of noisy real photos, then learning the temporal motion of flight — not just a static pose.",
+    approach: [
+      "YOLOv5 preprocessing pipeline to extract bird features from 18,000+ real images",
+      "CNN feature extractor feeding a GAN that synthesizes animated flight sequences",
+      "CUDA parallelization of the training loop",
+    ],
+    results: [
+      "18,000+ images processed through the extraction pipeline",
+      "3× reduction in training time via CUDA",
+      "Synthesized animated flight sequences from static inputs",
+    ],
+    architecture:
+      "Real images → YOLOv5 extraction → CNN features → GAN synthesis → animated flight sequences; CUDA-accelerated training.",
   },
   {
     slug: "paperdeck",
