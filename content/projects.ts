@@ -242,6 +242,156 @@ export const projects: Project[] = [
   },
 
   // ─────────────────────────── GRID ───────────────────────────
+  // Newest first. Projects without a public repo carry `repo: null` — the card
+  // renders with no link rather than a "private" label.
+  {
+    slug: "tracon",
+    name: "Tracon",
+    tagline: "A dependency- and session-aware scheduler for agent workloads — measured before it was built.",
+    year: "2026–present",
+    tier: "grid",
+    tags: ["C++", "Go", "gRPC", "pybind11", "discrete-event simulation"],
+    metrics: [{ label: "per scheduling decision, in-process", value: "1–52 µs" }],
+    repo: "https://github.com/Shivansh2703/tracon",
+  },
+  {
+    slug: "lockwire",
+    name: "Lockwire",
+    tagline:
+      "A physics lockfile for robots — mass, power, bus bandwidth and torque pinned into a contract that fails CI when they stop adding up.",
+    year: "2026–present",
+    tier: "grid",
+    tags: ["Python", "pydantic", "NumPy", "PX4 ULog", "CI gating"],
+    metrics: [{ label: "independently authored sources, checked against each other", value: "2" }],
+    repo: null,
+  },
+  {
+    slug: "agent-radar",
+    name: "Agent Radar",
+    tagline:
+      "A VS Code / Cursor extension showing every AI coding agent running on your machine — live, and entirely local.",
+    year: "2026–present",
+    tier: "grid",
+    tags: ["TypeScript", "VS Code Extension API", "process introspection", "no network"],
+    metrics: [{ label: "to the VS Code Marketplace and Open VSX", value: "published" }],
+    repo: "https://github.com/Shivansh2703/agent-radar",
+  },
+  {
+    slug: "nav2-upstream",
+    name: "Nav2 — Upstream Contribution",
+    tagline:
+      "In progress: wiring Address/Thread Sanitizers into the ROS2 Nav2 navigation stack's CI, upstream.",
+    year: "2026–present",
+    role: "open source",
+    tier: "grid",
+    tags: ["ROS2", "Nav2", "C++", "ASan / TSan", "CI"],
+    repo: null,
+  },
+  {
+    slug: "placebo",
+    name: "Placebo",
+    tagline:
+      "Static analysis that finds inert code — present, reviewed, merged, believed to work, and provably without effect.",
+    year: "2026",
+    tier: "grid",
+    tags: ["Python", "AST analysis", "static analysis", "Typer"],
+    metrics: [{ label: "held-out repositories evaluated (28.8M lines)", value: "104" }],
+    repo: null,
+  },
+  {
+    slug: "3rdspace",
+    name: "3rdspace",
+    tagline:
+      "A presence-based campus social app — geofenced spaces, anonymous-until-friended identity, privacy enforced in the database rather than a policy page.",
+    year: "2026–present",
+    tier: "grid",
+    tags: ["SwiftUI", "Core Location", "Supabase", "Postgres RLS"],
+    metrics: [{ label: "Swift sources; shipped to TestFlight", value: "195" }],
+    repo: null,
+  },
+  {
+    slug: "orphan",
+    name: "Orphan",
+    tagline:
+      "Finds data a still-installed Mac app has stopped referencing — the question every disk cleaner skips.",
+    year: "2026",
+    tier: "grid",
+    tags: ["Python", "macOS", "filesystem forensics", "Typer"],
+    metrics: [{ label: "reclaimed on its first real run", value: "121 GB" }],
+    repo: "https://github.com/Shivansh2703/orphan",
+  },
+  {
+    slug: "alfred",
+    name: "Alfred",
+    tagline:
+      "A Total War: Warhammer 3 mod and companion daemon that hands routine campaign admin to an LLM — guarded so it can only issue legal orders.",
+    year: "2026–present",
+    tier: "grid",
+    tags: ["Lua", "Python", "LLM agent", "game modding", "macOS"],
+    metrics: [{ label: "rulebook extracted and verified against a live campaign", value: "8.4 MB" }],
+    repo: null,
+  },
+  {
+    slug: "vyuha",
+    name: "Vyuha",
+    tagline:
+      "A deterministic co-op battle simulator — seeded RNG and fixed-tick determinism enforced by test, not by convention.",
+    year: "2026",
+    tier: "grid",
+    tags: ["TypeScript", "Vite", "Vitest", "deterministic simulation"],
+    metrics: [{ label: "tests across 11 files", value: "50" }],
+    repo: null,
+  },
+  {
+    slug: "gametable",
+    name: "Gametable",
+    tagline:
+      "In progress: turning any projector into a reactive tabletop surface — a phone camera watches the table so the projection responds to real pieces.",
+    year: "2026–present",
+    tier: "grid",
+    tags: ["Swift", "SwiftUI", "OpenCV", "computer vision"],
+    repo: null,
+  },
+  {
+    slug: "paperdeck",
+    name: "Paperdeck",
+    tagline:
+      "A Raspberry Pi driving a jailbroken Kindle as its display and an Xbox controller as its input, over a single USB cable.",
+    year: "2026",
+    tier: "grid",
+    tags: ["Python", "Raspberry Pi", "e-ink", "evdev", "USB networking"],
+    metrics: [{ label: "e-ink panel, no WiFi on the device", value: "1072×1448" }],
+    repo: "https://github.com/Shivansh2703/paperdeck",
+  },
+  {
+    slug: "homeserver",
+    name: "Home Server",
+    tagline:
+      "An always-on Raspberry Pi run as real infrastructure — private-network access, Dockerised services, and its whole provisioning kept in version control.",
+    year: "2026–present",
+    tier: "grid",
+    tags: ["Raspberry Pi", "Docker", "Linux", "systemd", "provisioning"],
+    repo: null,
+  },
+  {
+    slug: "chute",
+    name: "Chute",
+    tagline: "Drop a thought from your phone and it lands as a commit in a repo you own.",
+    year: "2026",
+    tier: "grid",
+    tags: ["JavaScript", "Cloudflare Workers", "Telegram Bot API", "GitHub API"],
+    repo: "https://github.com/Shivansh2703/chute",
+  },
+  {
+    slug: "tally",
+    name: "Tally",
+    tagline:
+      "A hands-free counter that counts by listening — calibrate it on a sound and it counts every repeat.",
+    year: "2026",
+    tier: "grid",
+    tags: ["JavaScript", "Web Audio API", "browser-only"],
+    repo: "https://github.com/Shivansh2703/tally",
+  },
   {
     slug: "utat-uav",
     name: "UTAT — VTOL Flight Software",
