@@ -165,33 +165,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "black-scholes-engine",
-    name: "Black-Scholes Quant Engine",
-    tagline: "High-throughput options pricing with SIMD-vectorized Greeks.",
-    year: "2024–2025",
-    tier: "grid",
-    tags: ["C++", "AVX-512 SIMD", "CRTP", "Monte Carlo"],
-    metrics: [{ label: "Greek calculations", value: "~6× (SIMD)" }],
-    repo: null,
-    problem:
-      "Pricing options and their sensitivities (Greeks) at throughput means fighting virtual-call " +
-      "overhead and scalar math in the hot kernel.",
-    approach: [
-      "Black-Scholes + Monte Carlo pricing",
-      "AVX-512 SIMD vectorization for Greek sensitivities (Delta, Gamma, Vega)",
-      "CRTP to eliminate virtual-function overhead in the simulation kernel",
-    ],
-    results: ["6× speedup on Greek calculations via SIMD"],
-    // codeSnippet: uncomment once a real CRTP kernel / SIMD Greek excerpt is pasted
-    // from the repo. A "// TODO" body must never ship — stays absent until real code exists.
-    // codeSnippet: {
-    //   lang: "cpp",
-    //   caption: "CRTP kernel — zero-cost static dispatch",
-    //   code: `...`,
-    // },
-    architecture: "CRTP pricing kernel → SIMD-vectorized Greek pass → aggregation.",
-  },
-  {
     slug: "bird-animation-gan",
     name: "Bird Animation Model",
     tagline: "A GAN that synthesizes animated bird-flight sequences from real images.",
@@ -202,7 +175,7 @@ export const projects: Project[] = [
       { label: "images processed", value: "18,000+" },
       { label: "training time", value: "3× faster (CUDA)" },
     ],
-    repo: "https://github.com/Shivansh2703/bird_animation_model",
+    repo: null, // repo made private — a public card must not link a 404
     media: [
       {
         type: "video",
@@ -243,7 +216,7 @@ export const projects: Project[] = [
       { label: "graphics stack", value: "zero libraries" },
       { label: "target", value: "bare-metal ARM" },
     ],
-    repo: "https://github.com/Shivansh2703/Plants-vs-Zombies",
+    repo: "https://github.com/Shivansh2703/pvz-de1soc",
     media: [
       {
         type: "video",
@@ -269,59 +242,6 @@ export const projects: Project[] = [
   },
 
   // ─────────────────────────── GRID ───────────────────────────
-  // Velox-LOB + Aether-Flow: kept as grid until documentation is strong enough to
-  // headline them as case studies. Re-promote later by flipping tier back to "hero"
-  // (the problem/approach/results/architecture fields are already written).
-  {
-    slug: "velox-lob",
-    name: "Velox-LOB",
-    tagline: "A sub-microsecond limit order book in pure C++20.",
-    year: "2026",
-    tier: "grid",
-    tags: ["C++20", "Data-Oriented Design", "lock-free", "AVX-512 SIMD", "custom allocator"],
-    metrics: [
-      { label: "order updates / sec", value: "1,000,000+" },
-      { label: "matching latency", value: "4× lower (SIMD)" },
-      { label: "order processing", value: "sub-µs" },
-    ],
-    repo: null,
-    problem:
-      "Matching engines live and die by tail latency: heap fragmentation and cache misses cause " +
-      "non-deterministic spikes that are unacceptable in a hot trading path.",
-    approach: [
-      "Data-Oriented Design of the book for L1 cache-hit maximization and memory alignment",
-      "Custom fixed-size block pool allocator replacing std::allocator — eliminates latency spikes from heap fragmentation",
-      "Lock-free single-producer/single-consumer (SPSC) queue via std::atomic",
-      "AVX-512 SIMD intrinsics to parallelize price-level updates",
-    ],
-    results: [
-      "1M+ order updates/sec sustained",
-      "4× reduction in matching latency via SIMD",
-      "sub-microsecond order processing",
-    ],
-    architecture:
-      "Ingress → lock-free SPSC queue → matching core (DOD book, pool allocator) → SIMD price-level update.",
-  },
-  {
-    slug: "aether-flow",
-    name: "Aether-Flow",
-    tagline: "A distributed, low-latency engine that orchestrates agentic inference.",
-    year: "2026–present",
-    tier: "grid",
-    tags: ["C++23", "Go", "gRPC", "Docker", "PyTorch", "lock-free"],
-    metrics: [{ label: "hardware utilization", value: "~40% higher (dynamic batching)" }],
-    repo: null,
-    problem:
-      "Serving agentic workflows across decoupled vision-language and LLM services wastes accelerator " +
-      "time when requests aren't batched intelligently.",
-    approach: [
-      "Distributed low-latency execution engine in C++23 orchestrating agentic workflows across decoupled VLM/LLM services",
-      "High-throughput async gRPC streaming backend in Go with a custom lock-free priority queue that dynamically batches incoming state requests",
-    ],
-    results: ["40% increase in hardware utilization via dynamic batching"],
-    architecture:
-      "Go gRPC front (lock-free priority queue, dynamic batching) → C++23 orchestrator → decoupled VLM/LLM inference services.",
-  },
   {
     slug: "utat-uav",
     name: "UTAT — VTOL Flight Software",
